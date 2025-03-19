@@ -3,3 +3,6 @@ venv/*
 
 checkpoint*
 runs/*
+test*
+data/*
+.cache/*
