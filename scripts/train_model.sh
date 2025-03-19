@@ -11,11 +11,16 @@
 #SBATCH --output=output/%j/output.log  # Fichier de sortie
 #SBATCH --error=error/%j/error.log  # Fichier d'erreur
 
+echo "Working directory: $(pwd)"
+echo "Starting at $(date)"
+echo "Running on $(hostname)"
+echo "Current user: $(whoami)"
+
 # Prepare environment
 nvidia-smi
 gpu
 export HF_HOME=../.cache/
-source .venv/bin/activate
+source venv/bin/activate
 pip install -r requirements.txt
 
 # # Exécution du script
@@ -27,4 +32,5 @@ python3 train_conll2003.py \
     --do_eval \
     --trust_remote_code=True 
 
-# python3 test_import.py
+deactivate 
+
