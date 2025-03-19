@@ -22,7 +22,7 @@ pip install -r requirements.txt
 python3 train_conll2003.py \
     --model_name_or_path bert-base-uncased \
     --dataset_name conll2003 \
-    --output_dir test-ner \
+    --output_dir output \
     --do_train \
     --do_eval \
     --trust_remote_code=True 
