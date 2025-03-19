@@ -15,6 +15,7 @@ echo "Working directory: $(pwd)"
 echo "Starting at $(date)"
 echo "Running on $(hostname)"
 echo "Current user: $(whoami)"
+echo "Directory ~ : $(ls ~)"
 
 # Prepare environment
 nvidia-smi
