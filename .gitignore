@@ -1,3 +1,8 @@
 venv/* 
-
 .env
+
+checkpoint*
+runs/*
+test*
+data/*
+.cache/*
