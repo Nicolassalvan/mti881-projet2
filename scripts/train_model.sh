@@ -25,10 +25,10 @@ export HF_HOME=./.cache/
 source ../venv/bin/activate
 
 python3 -m pip install --upgrade pip 
-pip install -r requirements.txt
+pip install -r ~/mti881-projet2/requirements.txt
 
 # # Exécution du script
-python3 mti881-projet2/train_conll2003.py \
+python3 ~/mti881-projet2/train_conll2003.py \
     --model_name_or_path bert-base-uncased \
     --dataset_name conll2003 \
     --output_dir ../output/ \
