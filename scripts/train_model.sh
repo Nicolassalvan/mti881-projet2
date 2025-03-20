@@ -19,16 +19,19 @@ echo "Directory ~ : $(ls ~)"
 
 # Prepare environment
 nvidia-smi
-gpu
-export HF_HOME=../.cache/
-source venv/bin/activate
+
+export HF_HOME=./.cache/
+
+source ../venv/bin/activate
+
+python3 -m pip install --upgrade pip 
 pip install -r requirements.txt
 
 # # Exécution du script
-python3 train_conll2003.py \
+python3 mti881-projet2/train_conll2003.py \
     --model_name_or_path bert-base-uncased \
     --dataset_name conll2003 \
-    --output_dir ../job/output/ \
+    --output_dir ../output/ \
     --do_train \
     --do_eval \
     --trust_remote_code=True 
