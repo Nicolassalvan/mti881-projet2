@@ -463,10 +463,7 @@ def main():
             A dictionary with the tokenized texts and the aligned labels, formated as ['input_ids', 'token_type_ids', 'attention_mask', 'labels']
 
         """
-        print("=" * 100)
-        print("Function: tokenize_and_align_labels")
-        print(examples.keys())
-        print("=" * 100)
+
         tokenized_inputs = tokenizer(
             examples[text_column_name],
             padding=padding,
@@ -499,9 +496,7 @@ def main():
 
             labels.append(label_ids)
         tokenized_inputs["labels"] = labels
-        print("=" * 100)  
-        print(tokenized_inputs.keys())
-        print("=" * 100)
+
         return tokenized_inputs
 
     if training_args.do_train:
