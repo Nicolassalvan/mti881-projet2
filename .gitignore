@@ -6,3 +6,6 @@ runs/*
 test*
 data/*
 .cache/*
+
+*.local 
+*.log
