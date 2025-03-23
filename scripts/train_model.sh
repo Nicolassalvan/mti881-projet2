@@ -36,5 +36,15 @@ python3 ~/mti881-projet2/train_conll2003.py \
     --do_eval \
     --trust_remote_code=True 
 
+#envoie de notification de job terminée sur discord
+#mettre votre propre url de webhook (ici url du discord MTI881Projet2) : 
+WEBHOOK_URL="https://discord.com/api/webhooks/1353477405624373289/-UN_D0e9qnOhK7lqVqEXLkQdCPTJn13bPNIrMn3kVRe5OfYapzS7kGN59Kn9y9mcjJcx"
+MESSAGE="Job terminé : $SLURM_JOB_NAME (ID: $SLURM_JOB_ID)"
+
+curl -H "Content-Type: application/json" \
+     -X POST \
+     -d "{\"content\": \"$MESSAGE\"}" \
+     $WEBHOOK_URL
+
 deactivate 
 
