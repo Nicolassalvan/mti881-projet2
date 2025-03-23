@@ -2,9 +2,9 @@
 
 
 #SBATCH --job-name=step-1-medmention  # Nom du job
-#SBATCH --mem=1G  # Mémoire requise
+#SBATCH --mem=8G  # Mémoire requise
 #SBATCH --gres=gpu:1  # Nombre de GPU requis - ne pas modifier !!!
-#SBATCH --time=0:05:00  # Temps d'exécution demandé (hh:mm:ss) - Ne pas dépasser 7h
+#SBATCH --time=01:00:00  # Temps d'exécution demandé (hh:mm:ss) - Ne pas dépasser 7h
 
 #SBATCH --chdir=../job/step-1-medmention   # Répertoire de travail
 
@@ -36,6 +36,7 @@ python3  ~/mti881-projet2/train_medmention.py \
     --do_eval \
     --trust_remote_code=True \
     --overwrite_output_dir=True \
-    --save_total_limit=5 
+    --save_total_limit=5 \
+    --num_train_epochs=10 
 deactivate 
 
