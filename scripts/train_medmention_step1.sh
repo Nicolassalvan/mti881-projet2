@@ -38,7 +38,6 @@ python3  ~/mti881-projet2/train_medmention.py \
     --trust_remote_code=True \
     --overwrite_output_dir=True \
     --save_total_limit=3 \
-    --num_train_epochs=10 \ 
-
+    --num_train_epochs=10 
 deactivate 
 
