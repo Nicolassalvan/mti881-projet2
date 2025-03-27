@@ -31,12 +31,14 @@ pip install -r ~/mti881-projet2/requirements.txt
 python3  ~/mti881-projet2/train_medmention.py \
     --model_name_or_path bert-base-uncased \
     --dataset_name ibm-research/MedMentions-ZS \
-    --output_dir ../output/ \
+    --output_dir ~/mti881-projet2/checkpoints/ \
     --do_train \
     --do_eval \
     --trust_remote_code=True \
     --overwrite_output_dir=True \
-    --save_total_limit=5 \
-    --num_train_epochs=10 
+    --save_total_limit=3 \
+    --num_train_epochs=10 \ 
+    --do_predict 
+
 deactivate 
 
