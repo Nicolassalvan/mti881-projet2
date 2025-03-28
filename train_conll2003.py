@@ -347,6 +347,8 @@ def main():
         label_list = get_label_list(raw_datasets["train"][label_column_name])
         label_to_id = {l: i for i, l in enumerate(label_list)}
 
+    print(f"label_list: {label_list} #DEBUG")
+    print(f"label_to_id: {label_to_id} #DEBUG")
     num_labels = len(label_list)
 
     # Load pretrained model and tokenizer
@@ -418,7 +420,7 @@ def main():
             logger.warning(
                 "Your model seems to have been trained with labels, but they don't match the dataset: "
                 f"model labels: {sorted(model.config.label2id.keys())}, dataset labels:"
-                f" {sorted(label_list)}.\nIgnoring the model labels as a result.",
+                f" {sorted(label_list)}.\nI gnoring the model labels as a result.",
             )
 
     # Set the correspondences label/ID inside the model config
