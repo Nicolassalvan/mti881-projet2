@@ -40,7 +40,6 @@ python3  ~/mti881-projet2/train_medmention.py \
     --save_total_limit=3 \
     --num_train_epochs=10 \
     --data_seed=42 \
-    --seed=42 \
-    --return_entity_level_metrics=True 
+    --seed=42 
 deactivate 
 

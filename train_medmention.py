@@ -358,6 +358,7 @@ def main():
         label_to_id = {i: i for i in range(len(label_list))}
     else:
         # label_list = get_label_list(raw_datasets["train"][label_column_name])
+        print("label_list : Using TUI list #DEBUG")
         label_list = get_label_list()
         label_to_id = {l: i for i, l in enumerate(label_list)}
 
@@ -557,6 +558,10 @@ def main():
         predictions, labels = p
         predictions = np.argmax(predictions, axis=2)
 
+        print("Computing metrics... # DEBUG")  # DEBUG
+        print(f"predictions : {predictions}")  # DEBUG
+        print(f"labels : {labels}")  # DEBUG
+        
         # Remove ignored index (special tokens)
         true_predictions = [
             [label_list[p] for (p, l) in zip(prediction, label) if l != -100]

@@ -8,8 +8,8 @@
 
 #SBATCH --chdir=../job/step-0-conll2003  # Répertoire de travail
 
-#SBATCH --output=output/%j/output.log  # Fichier de sortie
-#SBATCH --error=error/%j/error.log  # Fichier d'erreur
+#SBATCH --output=%j/output.log  # Fichier de sortie
+#SBATCH --error=%j/error.log  # Fichier d'erreur
 
 echo "Working directory: $(pwd)"
 echo "Starting at $(date)"

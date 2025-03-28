@@ -23,4 +23,10 @@ Entraînement d'un LLM sur SLURM.
 
 ## Dossier contenant les scripts et repo (`~/mti881_projet2`)
 
+## Dossier `data`
+
+Pour mettre les checkpoints, les données pour analyser l'entraînement. 
+
+
+
 
