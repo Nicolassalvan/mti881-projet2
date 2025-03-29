@@ -17,7 +17,7 @@
 Fine-tuning the library models for token classification.
 """
 
-
+path_tui_list = "umls/tui_list.csv" # f"~/mti881-projet2/umls/tui_list.csv"
 import logging
 import os
 import sys
@@ -28,6 +28,7 @@ import datasets
 import evaluate
 import numpy as np
 from datasets import ClassLabel, load_dataset
+import pandas as pd
 
 import transformers
 from transformers import (
@@ -329,13 +330,25 @@ def main():
 
     # In the event the labels are not a `Sequence[ClassLabel]`, we will need to go through the dataset to get the
     # unique labels.
-    def get_label_list(labels):
-        unique_labels = set()
-        for label in labels:
-            unique_labels = unique_labels | set(label)
-        label_list = list(unique_labels)
-        label_list.sort()
-        return label_list
+    # def get_label_list(labels): 
+    #     unique_labels = set()
+    #     for label in labels:
+    #         unique_labels = unique_labels | set(label)
+    #     label_list = list(unique_labels)
+    #     label_list.sort()
+    #     return label_list
+    def get_label_list():
+        # Modifié pour retourner la liste des entités de MedMention (tui) 
+        df = pd.read_csv(path_tui_list)['tui']
+        ret = []
+        for tui in df.to_list():
+            ret.append(f"B-{tui}")
+            ret.append(f"I-{tui}")
+            ret.append("O")
+        return sorted(ret) 
+
+    
+    # TODO : Modifier la liste de labels pour qu'elle corresponde à la liste des entités de MedMention
 
     # If the labels are of type ClassLabel, they are already integers and we have the map stored somewhere.
     # Otherwise, we have to get the list of labels manually.
@@ -344,11 +357,11 @@ def main():
         label_list = features[label_column_name].feature.names
         label_to_id = {i: i for i in range(len(label_list))}
     else:
-        label_list = get_label_list(raw_datasets["train"][label_column_name])
+        # label_list = get_label_list(raw_datasets["train"][label_column_name])
+        print("label_list : Using TUI list #DEBUG")
+        label_list = get_label_list()
         label_to_id = {l: i for i, l in enumerate(label_list)}
 
-    print(f"label_list: {label_list} #DEBUG")
-    print(f"label_to_id: {label_to_id} #DEBUG")
     num_labels = len(label_list)
 
     # Load pretrained model and tokenizer
@@ -420,7 +433,7 @@ def main():
             logger.warning(
                 "Your model seems to have been trained with labels, but they don't match the dataset: "
                 f"model labels: {sorted(model.config.label2id.keys())}, dataset labels:"
-                f" {sorted(label_list)}.\nI gnoring the model labels as a result.",
+                f" {sorted(label_list)}.\nIgnoring the model labels as a result.",
             )
 
     # Set the correspondences label/ID inside the model config
@@ -441,10 +454,17 @@ def main():
 
     # Tokenize all texts and align the labels with them.
     def tokenize_and_align_labels(examples):
-        print("=" * 100)
-        print("Function: tokenize_and_align_labels")
-        print(examples.keys())
-        print("=" * 100)
+        """
+        Maps over the examples to tokenize the texts and align the labels with the tokenized texts
+
+        Args:
+            examples: A dictionary, formatted as 'tokens' and 'ner_tags'.
+
+        Returns:
+            A dictionary with the tokenized texts and the aligned labels, formated as ['input_ids', 'token_type_ids', 'attention_mask', 'labels']
+
+        """
+
         tokenized_inputs = tokenizer(
             examples[text_column_name],
             padding=padding,
@@ -477,6 +497,7 @@ def main():
 
             labels.append(label_ids)
         tokenized_inputs["labels"] = labels
+
         return tokenized_inputs
 
     if training_args.do_train:
@@ -537,6 +558,10 @@ def main():
         predictions, labels = p
         predictions = np.argmax(predictions, axis=2)
 
+        print("Computing metrics... # DEBUG")  # DEBUG
+        print(f"predictions : {predictions}")  # DEBUG
+        print(f"labels : {labels}")  # DEBUG
+        
         # Remove ignored index (special tokens)
         true_predictions = [
             [label_list[p] for (p, l) in zip(prediction, label) if l != -100]

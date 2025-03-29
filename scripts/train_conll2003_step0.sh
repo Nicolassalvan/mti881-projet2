@@ -1,15 +1,15 @@
 #!/bin/bash
 
 
-#SBATCH --job-name=train-0  # Nom du job
+#SBATCH --job-name=step-0-conll2003  # Nom du job
 #SBATCH --mem=1G  # Mémoire requise
 #SBATCH --gres=gpu:1  # Nombre de GPU requis - ne pas modifier !!!
 #SBATCH --time=0:05:00  # Temps d'exécution demandé (hh:mm:ss) - Ne pas dépasser 7h
 
-#SBATCH --chdir=../job/train-0  # Répertoire de travail
+#SBATCH --chdir=../job/step-0-conll2003  # Répertoire de travail
 
-#SBATCH --output=output/%j/output.log  # Fichier de sortie
-#SBATCH --error=error/%j/error.log  # Fichier d'erreur
+#SBATCH --output=%j/output.log  # Fichier de sortie
+#SBATCH --error=%j/error.log  # Fichier d'erreur
 
 echo "Working directory: $(pwd)"
 echo "Starting at $(date)"
