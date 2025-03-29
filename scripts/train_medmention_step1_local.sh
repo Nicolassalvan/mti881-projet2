@@ -22,16 +22,15 @@ nvidia-smi
 
 export HF_HOME=./.cache/
 
-source ../venv/bin/activate
 
 python3 -m pip install --upgrade pip 
-pip install -r ~/mti881-projet2/requirements.txt
+pip install -r ./requirements.txt
 
 # # Exécution du script
-python3  ~/mti881-projet2/train_medmention.py \
+python3  ./train_medmention.py \
     --model_name_or_path bert-base-uncased \
     --dataset_name ibm-research/MedMentions-ZS \
-    --output_dir ~/mti881-projet2/checkpoints/ \
+    --output_dir ./checkpoints/ \
     --do_train \
     --do_eval \
     --do_predict \
@@ -40,6 +39,6 @@ python3  ~/mti881-projet2/train_medmention.py \
     --save_total_limit=3 \
     --num_train_epochs=10 \
     --data_seed=42 \
-    --seed=42 
-deactivate 
+    --seed=42 \
+    --return_entity_level_metrics=True 
 

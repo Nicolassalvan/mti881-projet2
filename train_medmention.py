@@ -17,7 +17,7 @@
 Fine-tuning the library models for token classification.
 """
 
-path_tui_list = "umls/tui_list.csv"
+path_tui_list = "umls/tui_list.csv" # f"~/mti881-projet2/umls/tui_list.csv"
 import logging
 import os
 import sys
@@ -339,7 +339,7 @@ def main():
     #     return label_list
     def get_label_list():
         # Modifié pour retourner la liste des entités de MedMention (tui) 
-        df = pd.read_csv(f"~/mti881-projet2/{path_tui_list}")['tui']
+        df = pd.read_csv(path_tui_list)['tui']
         ret = []
         for tui in df.to_list():
             ret.append(f"B-{tui}")
