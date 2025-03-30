@@ -6,7 +6,7 @@
 #SBATCH --gres=gpu:1  # Nombre de GPU requis - ne pas modifier !!!
 #SBATCH --time=0:05:00  # Temps d'exécution demandé (hh:mm:ss) - Ne pas dépasser 7h
 
-#SBATCH --chdir=../job/step-0-conll2003  # Répertoire de travail
+#SBATCH --chdir=~/job/step-0-conll2003  # Répertoire de travail
 
 #SBATCH --output=%j/output.log  # Fichier de sortie
 #SBATCH --error=%j/error.log  # Fichier d'erreur
@@ -31,7 +31,7 @@ pip install -r ~/mti881-projet2/requirements.txt
 python3 ~/mti881-projet2/train_conll2003.py \
     --model_name_or_path bert-base-uncased \
     --dataset_name conll2003 \
-    --output_dir ../output/ \
+    --output_dir  ~/mti881-projet2/checkpoints-0/ \
     --do_train \
     --do_eval \
     --trust_remote_code=True 

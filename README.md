@@ -21,13 +21,26 @@ Entraînement d'un LLM sur SLURM.
 
 ## Dossier d'entraînement (`~/job/..`)
 
-## Dossier contenant les scripts et repo (`~/mti881_projet2`)
+Contient l'étape (0 ou 1 pour l'instant) et pour chaque étape, il y a les sous dossiers contenant les noms de jobs. Dans ces sous-dossiers, il y a les logs. 
 
-## Dossier `data`
+```{bash}
+~/job/ETAPE/NUMERO_JOB/output.log
+~/job/ETAPE/NUMERO_JOB/error.log
+```
+## Dossier de code source (`~/mti881_projet2/..`)
 
-Pour mettre les checkpoints, les données pour analyser l'entraînement. 
+```{bash}
+~/mti881_projet2/scripts
+~/mti881_projet2/umls
+~/mti881_projet2/venv
+```
 
+## Dossier contenant les scripts et repo (`~/mti881_projet2/scripts`)
 
+## Dossier `~/mti881_projet2/data`
 
+Pour mettre les données pour analyser l'entraînement. 
 
+## `~/mti881_projet2/venv`
 
+`~/mti881_projet2/umls`

@@ -20,7 +20,7 @@ echo "Directory ~ : $(ls ~)"
 # Prepare environment
 nvidia-smi
 
-export HF_HOME=./.cache/
+export HF_HOME=~/mti881-projet2/.cache/
 
 source ~/mti881-projet2/venv/bin/activate
 
