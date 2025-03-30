@@ -17,7 +17,7 @@
 Fine-tuning the library models for token classification.
 """
 
-path_tui_list = "umls/tui_list.csv" # f"~/mti881-projet2/umls/tui_list.csv"
+path_tui_list = "~/mti881-projet2/umls/tui_list.csv"
 import logging
 import os
 import sys
