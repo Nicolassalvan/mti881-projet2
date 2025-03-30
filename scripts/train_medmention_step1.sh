@@ -22,7 +22,7 @@ nvidia-smi
 
 export HF_HOME=./.cache/
 
-source ~/venv/bin/activate
+source ~/mti881-projet2/venv/bin/activate
 
 python3 -m pip install --upgrade pip 
 pip install -r ~/mti881-projet2/requirements.txt
