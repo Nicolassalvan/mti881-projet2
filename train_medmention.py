@@ -411,7 +411,7 @@ def main():
             "validation": dataset_combined.select(val_indices),
             "test": dataset_combined.select(test_indices)
         })
-    raw_datasets = balanced_split(raw_datasets)
+    raw_datasets = balanced_split(raw_datasets, seed=training_args.seed)
 
     # Exit 
 

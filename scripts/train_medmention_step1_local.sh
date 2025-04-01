@@ -40,5 +40,18 @@ python3  ./train_medmention.py \
     --num_train_epochs=10 \
     --data_seed=42 \
     --seed=42 \
-    --return_entity_level_metrics=True 
+    --return_entity_level_metrics=True \
+    --eval_strategy=epoch \
+    --fp16 \
+    --gradient_accumulation_steps=2  
 
+
+WEBHOOK_URL="https://discord.com/api/webhooks/1353477405624373289/-UN_D0e9qnOhK7lqVqEXLkQdCPTJn13bPNIrMn3kVRe5OfYapzS7kGN59Kn9y9mcjJcx"
+MESSAGE="Job terminé : $SLURM_JOB_NAME (ID: $SLURM_JOB_ID)"
+
+curl -H "Content-Type: application/json" \
+     -X POST \
+     -d "{\"content\": \"$MESSAGE\"}" \
+     $WEBHOOK_URL
+
+deactivate 
