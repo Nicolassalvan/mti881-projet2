@@ -47,6 +47,11 @@ from transformers.trainer_utils import get_last_checkpoint
 from transformers.utils import check_min_version, send_example_telemetry
 from transformers.utils.versions import require_version
 from datasets import load_dataset
+from datasets import DatasetDict
+from datasets import concatenate_datasets
+from skmultilearn.model_selection import IterativeStratification
+from skmultilearn.model_selection import iterative_train_test_split
+from scipy.sparse import csr_matrix
 
 # Will error if the minimal version of Transformers is not installed. Remove at your own risks.
 #check_min_version("4.49.0.dev0")
@@ -307,6 +312,109 @@ def main():
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
     # https://huggingface.co/docs/datasets/loading_datasets.
 
+    # Balanced split of the data 
+    def balanced_split(dataset, ratios=[0.8, 0.1, 0.1], seed=42):
+        """
+        Effectue un split stratifié multi-label selon les ratios spécifiés
+        Args:
+            dataset: Dataset HuggingFace à splitter (combinée)
+            ratios: Liste de 3 proportions [train, val, test] qui doivent sommer à 1
+            seed: Seed pour la randomisation
+        Returns:
+            Tuple de 3 datasets (train, val, test)
+        """
+        # Validation des paramètres
+        dataset_combined = concatenate_datasets([dataset['train'], dataset['validation'], dataset['test']])
+
+
+        np.random.seed(seed)
+
+        assert len(ratios) == 3, "Doit spécifier 3 ratios"
+        assert abs(sum(ratios) - 1.0) < 1e-6, "Les ratios doivent sommer à 1"
+        
+        # Extraire les TUIs
+        print("Extraction des NER-Tags...")
+        tuis_per_doc = []
+        for doc in dataset_combined: 
+            tuis_per_doc.append(set(doc['ner_tags']))
+        print("Fait!")
+        # print(len(tuis_per_doc))
+
+        print("Création du mapping TUI vers indice...")
+        # Créer le mapping TUI vers indice
+        all_tuis = sorted({tui for tuis in tuis_per_doc for tui in tuis})
+        tui_to_idx = {tui: idx for idx, tui in enumerate(all_tuis)}
+
+
+        num_docs = len(dataset_combined)
+        num_tuis = len(all_tuis)
+        
+        row_indices = []
+        col_indices = []
+        for doc_idx, tuis in enumerate(tuis_per_doc):
+            for tui in tuis:
+                row_indices.append(doc_idx)
+                col_indices.append(tui_to_idx[tui])
+
+        label_matrix = csr_matrix((np.ones(len(row_indices)), 
+                                (row_indices, col_indices)), 
+                                shape=(num_docs, num_tuis))
+
+        print("Fait!")
+
+        indices = np.arange(len(dataset_combined))  
+
+        print("Shuffle des indices avant le split...")
+        np.random.shuffle(indices)  # Mélange les indices des documents
+        label_matrix = label_matrix[indices]  # Applique le même shuffle aux labels
+        print("Fait!")
+
+        print("Création du premier split (train VS reste)...")
+        # Premier split: train vs temp (val+test)
+        train_ratio = ratios[0]
+        X_train, Y_train, X_temp, Y_temp = iterative_train_test_split(
+            indices.reshape(-1, 1), 
+            label_matrix, 
+            test_size=1-train_ratio
+        )
+        
+        print("Fait!")
+        print("Création du deuxième split (val VS test)...")
+        # Deuxième split: val vs test
+        val_ratio = ratios[1]/(1 - train_ratio)
+        X_val, Y_val, X_test, Y_test = iterative_train_test_split(
+            X_temp,
+            Y_temp,
+            test_size=1-val_ratio
+        )
+        print("Fait!")
+
+        print("Conversion des indices...")
+        # Convertir les indices
+        train_indices = np.setdiff1d(indices, X_temp.flatten())
+        val_indices = X_val.flatten()
+        test_indices = X_test.flatten()
+        print("Fait! ")
+
+        # Vérifier les overlaps
+        assert len(set(train_indices) & set(val_indices)) == 0, "Overlap entre train et val"
+        assert len(set(train_indices) & set(test_indices)) == 0, "Overlap entre train et test"
+        assert len(set(val_indices) & set(test_indices)) == 0, "Overlap entre val et test"
+
+        # Vérifier que tous les exemples sont dans au moins un split
+        assert len(set(train_indices) | set(val_indices) | set(test_indices)) == len(dataset_combined), "Certains exemples ne sont pas dans un split"
+
+        print("Tous les exemples sont dans un split! et sans overlaps.")
+        print("Séparation en Train - Validation - Test terminée!")
+        return DatasetDict({
+            "train": dataset_combined.select(train_indices),
+            "validation": dataset_combined.select(val_indices),
+            "test": dataset_combined.select(test_indices)
+        })
+    raw_datasets = balanced_split(raw_datasets)
+
+    # Exit 
+
     if training_args.do_train:
         column_names = raw_datasets["train"].column_names
         features = raw_datasets["train"].features
@@ -330,22 +438,22 @@ def main():
 
     # In the event the labels are not a `Sequence[ClassLabel]`, we will need to go through the dataset to get the
     # unique labels.
-    # def get_label_list(labels): 
-    #     unique_labels = set()
-    #     for label in labels:
-    #         unique_labels = unique_labels | set(label)
-    #     label_list = list(unique_labels)
-    #     label_list.sort()
-    #     return label_list
-    def get_label_list():
-        # Modifié pour retourner la liste des entités de MedMention (tui) 
-        df = pd.read_csv(path_tui_list)['tui']
-        ret = []
-        for tui in df.to_list():
-            ret.append(f"B-{tui}")
-            ret.append(f"I-{tui}")
-            ret.append("O")
-        return sorted(ret) 
+    def get_label_list(labels): 
+        unique_labels = set()
+        for label in labels:
+            unique_labels = unique_labels | set(label)
+        label_list = list(unique_labels)
+        label_list.sort()
+        return label_list
+    # def get_label_list(): # PAS OK 
+    #     # Modifié pour retourner la liste des entités de MedMention (tui) 
+    #     df = pd.read_csv(path_tui_list)['tui']
+    #     ret = []
+    #     for tui in df.to_list():
+    #         ret.append(f"B-{tui}")
+    #         ret.append(f"I-{tui}")
+    #         ret.append("O")
+    #     return sorted(ret) 
 
     
     # TODO : Modifier la liste de labels pour qu'elle corresponde à la liste des entités de MedMention
@@ -357,9 +465,9 @@ def main():
         label_list = features[label_column_name].feature.names
         label_to_id = {i: i for i in range(len(label_list))}
     else:
-        # label_list = get_label_list(raw_datasets["train"][label_column_name])
-        print("label_list : Using TUI list #DEBUG")
-        label_list = get_label_list()
+        label_list = get_label_list(raw_datasets["train"][label_column_name])
+        # print("label_list : Using TUI list #DEBUG")
+        # label_list = get_label_list()
         label_to_id = {l: i for i, l in enumerate(label_list)}
 
     num_labels = len(label_list)

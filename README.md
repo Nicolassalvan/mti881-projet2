@@ -12,9 +12,12 @@ Entraînement d'un LLM sur SLURM.
 
 
 
-- **Liste de labels** : Modification de la fonction `get_label_list` qui renvoit la liste des TUI (identifiants sémantiques) au format BIO, qui sont utilisés par MedMention. Renvoit la liste complète car cela change rarement, et la dimension n'augmente pas tant. Nous avons trouvé une liste sur UMLS que nous avons converti en CSV (dans `umls/tui_list.csv`). On a aussi rajouté la bibliothèque pandas aux requirements pour sa fonction `pandas.read_csv`. 
+- **Modification des labels** : Modification de la fonction `get_label_list` qui renvoit la liste des TUI (identifiants sémantiques) au format BIO, qui sont utilisés par MedMention. Renvoit la liste complète car cela change rarement, et la dimension n'augmente pas tant. Nous avons trouvé une liste sur UMLS que nous avons converti en CSV (dans `umls/tui_list.csv`). On a aussi rajouté la bibliothèque pandas aux requirements pour sa fonction `pandas.read_csv`. Finalement, cette méthode n'est pas très concluante et les résultats de l'évaluation sont biaisés. On va essayer de faire plutôt un mapping. Un mapping UMLS dans ce contexte permet de convertir dynamiquement les labels absents (TUIs non vus lors de l'entraînement) en leurs parents hiérarchiques les plus proches parmi les labels déjà appris par le modèle. 
+- **Options du modèle** : Modification du script, pour changer le dataset avec l'option `--dataset_name ibm-research/MedMentions-ZS`. On modifie aussi le nom du job et d'autres paramètres (à décrire en s'aidant de l'aide) :
 
-- **Script** : Modification du script, pour changer le dataset avec l'option `--dataset_name ibm-research/MedMentions-ZS`. On modifie aussi le nom du job. 
+    - `lorem ipsum`
+    - `lorem ipsum`
+    - `lorem ipsum`
 
 
 # Structure du code 
@@ -33,14 +36,7 @@ Contient l'étape (0 ou 1 pour l'instant) et pour chaque étape, il y a les sous
 ~/mti881_projet2/scripts
 ~/mti881_projet2/umls
 ~/mti881_projet2/venv
+~/mti881_projet2/data
 ```
 
-## Dossier contenant les scripts et repo (`~/mti881_projet2/scripts`)
 
-## Dossier `~/mti881_projet2/data`
-
-Pour mettre les données pour analyser l'entraînement. 
-
-## `~/mti881_projet2/venv`
-
-`~/mti881_projet2/umls`
