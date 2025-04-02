@@ -395,19 +395,19 @@ def main():
 
     #!!!on recup l'occurence de tous les labels pour calculer les poids des classes 
     # on récupère tous les labels (sauf -100)
-    all_labels = [
-        label 
-        for batch in raw_datasets["train"]["labels"] 
-        for label in batch 
-        if label != -100
-    ]
+    # all_labels = [
+    #     label 
+    #     for batch in raw_datasets["train"]["labels"] 
+    #     for label in batch 
+    #     if label != -100
+    # ]
 
-    # Calculez les poids (inverse des fréquences)
-    class_weights = compute_class_weight(
-        "balanced", 
-        classes=np.unique(all_labels), 
-        y=all_labels
-    )
+    # # Calculez les poids (inverse des fréquences)
+    # class_weights = compute_class_weight(
+    #     "balanced", 
+    #     classes=np.unique(all_labels), 
+    #     y=all_labels
+    # )
     #class_weights = torch.tensor(class_weights, dtype=torch.float32).to(device)
     #!!!
 
@@ -608,54 +608,6 @@ def main():
             for prediction, label in zip(predictions, labels)
         ]
 
-
-        #!!!création d'un tableau de résultats : 
-
-        # #préparation du tableau
-        # headers = ["Classe", "F1", "Précision", "Rappel"]
-        # rows = []
-        
-        # #métriques globales dans un premier tableau
-        # rows.append(["GLOBAL", "", "", ""])
-        # rows.append([
-        #     "Moyenne macro", 
-        #     report["macro avg"]["f1-score"],
-        #     report["macro avg"]["precision"],
-        #     report["macro avg"]["recall"]
-        # ])
-        
-        # #ajoute chaque classe
-        # for key in sorted(report.keys()):
-        #     if key not in ["micro avg", "macro avg", "weighted avg"]:
-        #         rows.append([
-        #             key,
-        #             report[key]["f1-score"],
-        #             report[key]["precision"],
-        #             report[key]["recall"]
-        #         ])
-        
-        # # formatage pour un copier-coller facile
-        # def format_fixed_width(rows):
-        #     # Calcule les largeurs de colonnes
-        #     col_widths = [[max(len(str(x))) for x in col] for col in zip(*rows)]
-            
-        #     # Construit le tableau
-        #     table = []
-        #     for row in rows:
-        #         formatted_row = "  ".join(
-        #             str(x).ljust(width) for x, width in zip(row, col_widths)
-        #         )
-        #         table.append(formatted_row)
-        #     return "\n".join(table)
-        
-        # # afficher le résultat
-        # print("\n" + "="*60)
-        # print("RÉSULTATS D'ÉVALUATION (Copiez-collez dans Excel/Sheets)")
-        # print("="*60)
-        # print(format_fixed_width([headers] + rows))
-        # print("="*60)
-        # #!!!
-
         
         #!!!ancien code --> on remplace par une évaluation pour chaque type sémantique (librairie seqeval)
         #!!!seqeval permet de évaluer les séquences complètes (ex: ["B-PER", "I-PER"] = 1 entité)
@@ -679,23 +631,60 @@ def main():
         #         "f1": results["overall_f1"],
         #         "accuracy": results["overall_accuracy"],
         #     }
+        #!!
+
+        #!!!création d'un tableau de résultats : 
+        # Génération du rapport
         report = classification_report(
-            true_labels, 
+            true_labels,
             true_predictions,
-            output_dict=True, #retourne dictionnaire (plus pratique pour le code) report["DISEASE"]["f1-score"]  # accès immédiat
-            zero_division=0 #evite erreur si on a une classe absente (division par 0 dans calcul precision = TP / (TP + FP))
+            output_dict=True,
+            zero_division=0
         )
+        #préparation du tableau
+        headers = ["Classe", "F1", "Précision", "Rappel"]
+        rows = []
         
-        # retourne à la fois les métriques globales et par entité sémantique
-        AVG_KEYS = ["micro avg", "macro avg", "weighted avg"]
-        return {
-            "overall_f1": report["macro avg"]["f1-score"],
-            "overall_precision": report["macro avg"]["precision"],
-            "overall_recall": report["macro avg"]["recall"],
-            **{f"{key}_f1": val["f1-score"] for key, val in report.items() if key not in AVG_KEYS},#key = type sémantique
-            **{f"{key}_recall": val["recall"] for key, val in report.items() if key not in AVG_KEYS},
-            **{f"{key}_precision": val["precision"] for key, val in report.items() if key not in AVG_KEYS}
-            }
+        #métriques globales dans un premier tableau
+        rows.append(["GLOBAL", "", "", ""])
+        rows.append([
+            "Moyenne macro", 
+            report["macro avg"]["f1-score"],
+            report["macro avg"]["precision"],
+            report["macro avg"]["recall"]
+        ])
+        
+        #ajoute chaque classe
+        for key in sorted(report.keys()):
+            if key not in ["micro avg", "macro avg", "weighted avg"]:
+                rows.append([
+                    key,
+                    report[key]["f1-score"],
+                    report[key]["precision"],
+                    report[key]["recall"]
+                ])
+        
+        # formatage pour un copier-coller facile
+        def format_fixed_width(rows):
+            # Calcule les largeurs de colonnes
+            col_widths = [max(len(str(x)) for x in col) for col in zip(*rows)]
+            
+            # Construit le tableau
+            table = []
+            for row in rows:
+                formatted_row = "  ".join(
+                    str(x).ljust(width) for x, width in zip(row, col_widths)
+                )
+                table.append(formatted_row)
+            return "\n".join(table)
+        
+        # afficher le résultat
+        print("\n" + "="*60)
+        print("RÉSULTATS D'ÉVALUATION")
+        print("="*60)
+        print(format_fixed_width([headers] + rows))
+        print("="*60)
+        # #!!!
 
     # Initialize our Trainer
     trainer = Trainer(
