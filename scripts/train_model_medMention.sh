@@ -21,7 +21,6 @@ python train_medmention.py \
   --do_train \
   --do_eval \
   --trust_remote_code=True
-
 #mettre votre propre URL DE webhook : 
 WEBHOOK_URL="https://discord.com/api/webhooks/1352871633580331078/2GwmRsUh9rtPJKc-dxBSv8ikCD-4rFmd7pck09ZTVO7P9wIi8UMx53IpXQXMMSOkkYj0"
 MESSAGE="Job terminé : $SLURM_JOB_NAME (ID: $SLURM_JOB_ID)"

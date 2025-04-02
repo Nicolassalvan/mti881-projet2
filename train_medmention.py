@@ -408,8 +408,8 @@ def main():
         classes=np.unique(all_labels), 
         y=all_labels
     )
-    class_weights = torch.tensor(class_weights, dtype=torch.float32).to(device)
-
+    #class_weights = torch.tensor(class_weights, dtype=torch.float32).to(device)
+    #!!!
 
 
 
@@ -607,6 +607,54 @@ def main():
             [label_list[l] for (p, l) in zip(prediction, label) if l != -100]
             for prediction, label in zip(predictions, labels)
         ]
+
+
+        #!!!création d'un tableau de résultats : 
+
+        # #préparation du tableau
+        # headers = ["Classe", "F1", "Précision", "Rappel"]
+        # rows = []
+        
+        # #métriques globales dans un premier tableau
+        # rows.append(["GLOBAL", "", "", ""])
+        # rows.append([
+        #     "Moyenne macro", 
+        #     report["macro avg"]["f1-score"],
+        #     report["macro avg"]["precision"],
+        #     report["macro avg"]["recall"]
+        # ])
+        
+        # #ajoute chaque classe
+        # for key in sorted(report.keys()):
+        #     if key not in ["micro avg", "macro avg", "weighted avg"]:
+        #         rows.append([
+        #             key,
+        #             report[key]["f1-score"],
+        #             report[key]["precision"],
+        #             report[key]["recall"]
+        #         ])
+        
+        # # formatage pour un copier-coller facile
+        # def format_fixed_width(rows):
+        #     # Calcule les largeurs de colonnes
+        #     col_widths = [[max(len(str(x))) for x in col] for col in zip(*rows)]
+            
+        #     # Construit le tableau
+        #     table = []
+        #     for row in rows:
+        #         formatted_row = "  ".join(
+        #             str(x).ljust(width) for x, width in zip(row, col_widths)
+        #         )
+        #         table.append(formatted_row)
+        #     return "\n".join(table)
+        
+        # # afficher le résultat
+        # print("\n" + "="*60)
+        # print("RÉSULTATS D'ÉVALUATION (Copiez-collez dans Excel/Sheets)")
+        # print("="*60)
+        # print(format_fixed_width([headers] + rows))
+        # print("="*60)
+        # #!!!
 
         
         #!!!ancien code --> on remplace par une évaluation pour chaque type sémantique (librairie seqeval)
