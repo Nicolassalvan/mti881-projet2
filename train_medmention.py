@@ -46,7 +46,7 @@ from transformers.trainer_utils import get_last_checkpoint
 from transformers.utils import check_min_version, send_example_telemetry
 from transformers.utils.versions import require_version
 from datasets import load_dataset
-#!!!AJOUTE DE SEQEVAL
+#!!!AJOUT DE SEQEVAL
 from seqeval.metrics import (
     accuracy_score,
     precision_score,
@@ -55,6 +55,8 @@ from seqeval.metrics import (
     classification_report
 )
 #!!!
+from sklearn.utils.class_weight import compute_class_weight#!!! pour la loss weighted
+import torch#!!!pour la loss
 
 # Will error if the minimal version of Transformers is not installed. Remove at your own risks.
 #check_min_version("4.49.0.dev0")
@@ -296,6 +298,7 @@ def main():
     # In distributed training, the load_dataset function guarantee that only one local process can concurrently
     # download the dataset.
     if data_args.dataset_name is not None:
+        #!!!MODIFICATION DU CODE DE BASE : resplit de train, test, eval
         # # Downloading and loading a dataset from the hub.
         # raw_datasets = load_dataset(
         #     data_args.dataset_name,
@@ -305,7 +308,7 @@ def main():
         #     trust_remote_code=model_args.trust_remote_code,
         # )
 
-        #!!!MODIFICATION DU CODE DE BASE : resplit de train, test, eval
+        
         # Charger le dataset complet (sans split prédéfini)
         full_dataset = load_dataset(
             data_args.dataset_name,
@@ -389,6 +392,26 @@ def main():
         label_to_id = {l: i for i, l in enumerate(label_list)}
 
     num_labels = len(label_list)
+
+    #!!!on recup l'occurence de tous les labels pour calculer les poids des classes 
+    # on récupère tous les labels (sauf -100)
+    all_labels = [
+        label 
+        for batch in raw_datasets["train"]["labels"] 
+        for label in batch 
+        if label != -100
+    ]
+
+    # Calculez les poids (inverse des fréquences)
+    class_weights = compute_class_weight(
+        "balanced", 
+        classes=np.unique(all_labels), 
+        y=all_labels
+    )
+    class_weights = torch.tensor(class_weights, dtype=torch.float32).to(device)
+
+
+
 
     # Load pretrained model and tokenizer
     #
@@ -572,8 +595,8 @@ def main():
         predictions, labels = p
         predictions = np.argmax(predictions, axis=2)
 
-        print("Exemple de prédictions :", predictions[:10],flush=True)#test
-        print("Exemple de labels réels :", labels[:10], flush=True)#test
+        print("Exemple de prédictions :", predictions[:10],flush=True)#!!!test
+        print("Exemple de labels réels :", labels[:10], flush=True)#!!!test
 
         # Remove ignored index (special tokens)
         true_predictions = [
@@ -585,23 +608,45 @@ def main():
             for prediction, label in zip(predictions, labels)
         ]
 
-        results = metric.compute(predictions=true_predictions, references=true_labels)
-        if data_args.return_entity_level_metrics:
-            # Unpack nested dictionaries
-            final_results = {}
-            for key, value in results.items():
-                if isinstance(value, dict):
-                    for n, v in value.items():
-                        final_results[f"{key}_{n}"] = v
-                else:
-                    final_results[key] = value
-            return final_results
-        else:
-            return {
-                "precision": results["overall_precision"],
-                "recall": results["overall_recall"],
-                "f1": results["overall_f1"],
-                "accuracy": results["overall_accuracy"],
+        
+        #!!!ancien code --> on remplace par une évaluation pour chaque type sémantique (librairie seqeval)
+        #!!!seqeval permet de évaluer les séquences complètes (ex: ["B-PER", "I-PER"] = 1 entité)
+
+        #results = metric.compute(predictions=true_predictions, references=true_labels)
+
+        # if data_args.return_entity_level_metrics:
+        #     # Unpack nested dictionaries
+        #     final_results = {}
+        #     for key, value in results.items():
+        #         if isinstance(value, dict):
+        #             for n, v in value.items():
+        #                 final_results[f"{key}_{n}"] = v
+        #         else:
+        #             final_results[key] = value
+        #     return final_results
+        # else:
+        #     return {
+        #         "precision": results["overall_precision"],
+        #         "recall": results["overall_recall"],
+        #         "f1": results["overall_f1"],
+        #         "accuracy": results["overall_accuracy"],
+        #     }
+        report = classification_report(
+            true_labels, 
+            true_predictions,
+            output_dict=True, #retourne dictionnaire (plus pratique pour le code) report["DISEASE"]["f1-score"]  # accès immédiat
+            zero_division=0 #evite erreur si on a une classe absente (division par 0 dans calcul precision = TP / (TP + FP))
+        )
+        
+        # retourne à la fois les métriques globales et par entité sémantique
+        AVG_KEYS = ["micro avg", "macro avg", "weighted avg"]
+        return {
+            "overall_f1": report["macro avg"]["f1-score"],
+            "overall_precision": report["macro avg"]["precision"],
+            "overall_recall": report["macro avg"]["recall"],
+            **{f"{key}_f1": val["f1-score"] for key, val in report.items() if key not in AVG_KEYS},#key = type sémantique
+            **{f"{key}_recall": val["recall"] for key, val in report.items() if key not in AVG_KEYS},
+            **{f"{key}_precision": val["precision"] for key, val in report.items() if key not in AVG_KEYS}
             }
 
     # Initialize our Trainer
