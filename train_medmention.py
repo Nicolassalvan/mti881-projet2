@@ -57,6 +57,8 @@ from seqeval.metrics import (
 #!!!
 from sklearn.utils.class_weight import compute_class_weight#!!! pour la loss weighted
 import torch#!!!pour la loss
+from loss import WeightedLossTrainer #loss pondérée
+from collections import Counter#temporary
 
 # Will error if the minimal version of Transformers is not installed. Remove at your own risks.
 #check_min_version("4.49.0.dev0")
@@ -365,6 +367,8 @@ def main():
 
     if data_args.label_column_name is not None:#definition colonne labels
         label_column_name = data_args.label_column_name
+    elif "ner_tags" in column_names:  # Nom standard pour les datasets NER #!!!
+        label_column_name = "ner_tags" #!!!
     elif f"{data_args.task_name}_tags" in column_names:
         label_column_name = f"{data_args.task_name}_tags"
     else:
@@ -394,24 +398,32 @@ def main():
     num_labels = len(label_list)
 
     #!!!on recup l'occurence de tous les labels pour calculer les poids des classes 
-    # on récupère tous les labels (sauf -100)
-    # all_labels = [
-    #     label 
-    #     for batch in raw_datasets["train"]["labels"] 
-    #     for label in batch 
-    #     if label != -100
-    # ]
+    #on récupère tous les labels (sauf -100)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    all_labels = [
+        label 
+        for batch in raw_datasets["train"]["ner_tags"] 
+        for label in batch 
+        if label != -100
+    ]
 
-    # # Calculez les poids (inverse des fréquences)
-    # class_weights = compute_class_weight(
-    #     "balanced", 
-    #     classes=np.unique(all_labels), 
-    #     y=all_labels
-    # )
-    #class_weights = torch.tensor(class_weights, dtype=torch.float32).to(device)
+    # calculez les poids des classes (inverse des fréquences)
+    class_weights = compute_class_weight(
+        "balanced", 
+        classes=np.unique(all_labels), 
+        y=all_labels
+    )
+    class_weights = torch.tensor(class_weights, dtype=torch.float32).to(device)
+    
+    #!!!temporary
+    class_weights_list = class_weights.cpu().numpy().tolist()
+    print("Class Weights:", class_weights_list)
+    print("COUCOUUUU ICIIII")
+    print(Counter(all_labels))#temporary
+    #!!!
     #!!!
 
-
+    
 
     # Load pretrained model and tokenizer
     #
@@ -595,9 +607,6 @@ def main():
         predictions, labels = p
         predictions = np.argmax(predictions, axis=2)
 
-        print("Exemple de prédictions :", predictions[:10],flush=True)#!!!test
-        print("Exemple de labels réels :", labels[:10], flush=True)#!!!test
-
         # Remove ignored index (special tokens)
         true_predictions = [
             [label_list[p] for (p, l) in zip(prediction, label) if l != -100]
@@ -684,10 +693,18 @@ def main():
         print("="*60)
         print(format_fixed_width([headers] + rows))
         print("="*60)
-        # #!!!
+
+        return {
+            "f1_macro": report["macro avg"]["f1-score"],
+            "precision_macro": report["macro avg"]["precision"],
+            "recall_macro": report["macro avg"]["recall"],
+            # Ajoutez d'autres métriques si nécessaire
+        }
+        #!!!
 
     # Initialize our Trainer
-    trainer = Trainer(
+    #!!!!
+    trainer = WeightedLossTrainer(
         model=model,
         args=training_args,
         train_dataset=train_dataset if training_args.do_train else None,
@@ -695,7 +712,9 @@ def main():
         processing_class=tokenizer,
         data_collator=data_collator,
         compute_metrics=compute_metrics,
+        class_weights=class_weights
     )
+    #!!!!
 
     # Training
     if training_args.do_train:
