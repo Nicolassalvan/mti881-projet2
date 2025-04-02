@@ -667,8 +667,8 @@ def main():
         predictions = np.argmax(predictions, axis=2)
 
         print("Computing metrics... # DEBUG")  # DEBUG
-        print(f"predictions : {predictions}")  # DEBUG
-        print(f"labels : {labels}")  # DEBUG
+        # print(f"predictions : {predictions}")  # DEBUG
+        # print(f"labels : {labels}")  # DEBUG
         
         # Remove ignored index (special tokens)
         true_predictions = [

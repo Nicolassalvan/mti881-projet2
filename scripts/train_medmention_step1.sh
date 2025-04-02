@@ -42,9 +42,10 @@ python3  ~/mti881-projet2/train_medmention.py \
     --data_seed=42 \
     --seed=42 \
     --return_entity_level_metrics=True \
-    --eval_strategy=epoch \
+    --eval_strategy=steps \
     --fp16 \
-    --gradient_accumulation_steps=2  
+    --gradient_accumulation_steps=2 \
+    
 
 
 WEBHOOK_URL="https://discord.com/api/webhooks/1353477405624373289/-UN_D0e9qnOhK7lqVqEXLkQdCPTJn13bPNIrMn3kVRe5OfYapzS7kGN59Kn9y9mcjJcx"
