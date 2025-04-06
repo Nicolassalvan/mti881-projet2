@@ -13,3 +13,5 @@ data/*
 local/*
 local*
 
+figures/*
+*.png

@@ -41,9 +41,13 @@ python3  ./train_medmention.py \
     --data_seed=42 \
     --seed=42 \
     --return_entity_level_metrics=True \
-    --eval_strategy=epoch \
+    --eval_strategy=steps \
     --fp16 \
-    --gradient_accumulation_steps=2  
+    --gradient_accumulation_steps=2 \
+    --learning_rate=1e-5 \
+    --per_device_train_batch_size=16 \
+    --per_device_eval_batch_size=16 \
+    --max_seq_length=64 \
 
 
 WEBHOOK_URL="https://discord.com/api/webhooks/1353477405624373289/-UN_D0e9qnOhK7lqVqEXLkQdCPTJn13bPNIrMn3kVRe5OfYapzS7kGN59Kn9y9mcjJcx"
@@ -53,5 +57,15 @@ curl -H "Content-Type: application/json" \
      -X POST \
      -d "{\"content\": \"$MESSAGE\"}" \
      $WEBHOOK_URL
+
+# Analyse 
+python3 ./analyse_metrics.py \
+    --save_dir ./figures/ \
+    --checkpoint_dir ./checkpoints/ \
+
+# Envoi des résultats sur Discord
+python3 ./send_discord_message.py \
+    --webhook_url $WEBHOOK_URL \
+    --img_dir ./figures/ 
 
 deactivate 

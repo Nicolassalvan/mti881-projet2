@@ -60,4 +60,14 @@ curl -H "Content-Type: application/json" \
      -d "{\"content\": \"$MESSAGE\"}" \
      $WEBHOOK_URL
 
+# Analyse 
+python3 ~/mti881-projet2/analyse_metrics.py \
+    --save_dir ~/mti881-projet2/figures/ \
+    --checkpoint_dir ~/mti881-projet2/checkpoints/ \
+
+# Envoi des résultats sur Discord
+python3 ~/mti881-projet2/send_discord_message.py \
+    --webhook_url $WEBHOOK_URL \
+    --img_dir ~/mti881-projet2/figures/ 
+
 deactivate 
