@@ -9,26 +9,28 @@ import pandas as pd
 
 
 
-def get_tuis_from_cui(id):
+def get_tuis_from_cui(id, key):
     # Lancer la requête sur l'api d'umls
 
+    try : 
+        resp = umls_api.API(api_key=key).get_cui(cui=id)
 
-    # Lancer la requête sur l'api d'umls
+        # Sortir les TUI des relations sémantiques de l'ontologie
+        if "result" in resp:
+            tuis = [item["uri"].split("/")[-1] for item in resp["result"]["semanticTypes"]]
+            #print(tuis)
+            return tuis #!!!!!! modifié 
+        else:
+            #print("TUI : Aucune information trouvée")
+            return [-100] #!!!!! si aucun TUI n'est trouvé 
+    except : 
+        return [-100]
 
-    resp = umls_api.API(api_key=clef_api).get_cui(cui=id)
+# def get_tuis_from_cui(id):
+#     tuis_df = pd.read_csv("tui_list.csv")
+#     return tuis_df
 
-    # Sortir les TUI des relations sémantiques de l'ontologie
-    if "result" in resp:
-        tuis = [item["uri"].split("/")[-1] for item in resp["result"]["semanticTypes"]]
-        print(tuis)
-    else:
-        print("Aucune information trouvée")
-
-def get_tuis_from_cui(id):
-    tuis_df = pd.read_csv("tui_list.csv")
-    return tuis_df
-
-def bio_tui_list():
+def bio_tui_list(): #toutes les étiquettes possibles
     df = pd.read_csv("tui_list.csv")['tui']
     ret = []
     for tui in df.to_list():
@@ -73,7 +75,7 @@ if __name__ == "__main__":
     clef_api = open("apikey.local", "r", encoding="UTF-8").read()
 
     id = 'C0007107'
-    get_tuis_from_cui(id)
+    get_tuis_from_cui(id, clef_api)
     print(bio_tui_list())
 
 
