@@ -1,0 +1,2263 @@
+{
+    "pageSize": 25,
+    "pageNumber": 1,
+    "pageCount": 1,
+    "result": {
+        "classType": "SemanticType",
+        "abbreviation": "patf",
+        "ui": "T046",
+        "definition": "A disordered process, activity, or state of the organism as a whole, of a body system or systems, or of multiple organs or tissues. Included here are normal responses to a negative stimulus as well as patholologic conditions or states that are less specific than a disease. Pathologic functions frequently have systemic effects.",
+        "example": "NONE",
+        "nonHuman": "NONE",
+        "usageNote": "If the process is specific, for example to a site or substance, then 'Disease or Syndrome' will be assigned and not 'Pathologic Function'. For example, \"cerebral anoxia\", \"brain edema\", and \"milk hypersensitivity\" will all be assigned to 'Disease or Syndrome' only.",
+        "treeNumber": "B2.2.1.2",
+        "name": "Pathologic Function",
+        "relations": [
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Organism Attribute",
+                "type": "associated_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "type": "associated_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Anatomical Abnormality",
+                "type": "co-occurs_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Injury or Poisoning",
+                "type": "co-occurs_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "type": "co-occurs_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Anatomical Abnormality",
+                "type": "complicates"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Injury or Poisoning",
+                "type": "complicates"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "type": "complicates"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "type": "degree_of"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Biologic Function",
+                "type": "isa"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Injury or Poisoning",
+                "type": "manifestation_of"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "type": "manifestation_of"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Physiologic Function",
+                "type": "manifestation_of"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Disease or Syndrome",
+                "type": "occurs_in"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Group",
+                "type": "occurs_in"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Injury or Poisoning",
+                "type": "occurs_in"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "type": "precedes"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Behavior",
+                "type": "result_of"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Health Care Activity",
+                "type": "result_of"
+            }
+        ],
+        "inverseRelations": [
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Anatomical Abnormality",
+                "type": "location_of"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Bacterium",
+                "type": "causes"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Cell or Molecular Dysfunction",
+                "type": "isa"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Daily or Recreational Activity",
+                "type": "associated_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Diagnostic Procedure",
+                "type": "diagnoses"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Disease or Syndrome",
+                "type": "isa"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Experimental Model of Disease",
+                "type": "isa"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Finding",
+                "type": "associated_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Fungus",
+                "type": "causes"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Geographic Area",
+                "type": "associated_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Immunologic Factor",
+                "type": "indicates"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Individual Behavior",
+                "type": "associated_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Injury or Poisoning",
+                "type": "complicates"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Laboratory Procedure",
+                "type": "diagnoses"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Manufactured Object",
+                "type": "causes"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Medical Device",
+                "type": "prevents"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Medical Device",
+                "type": "treats"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Occupational Activity",
+                "type": "associated_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Pathologic Function",
+                "type": "associated_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Pathologic Function",
+                "type": "co-occurs_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Pathologic Function",
+                "type": "complicates"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Pathologic Function",
+                "type": "degree_of"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Pathologic Function",
+                "type": "manifestation_of"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Pathologic Function",
+                "type": "precedes"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Pharmacologic Substance",
+                "type": "diagnoses"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Pharmacologic Substance",
+                "type": "prevents"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Pharmacologic Substance",
+                "type": "treats"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Population Group",
+                "type": "associated_with"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Professional or Occupational Group",
+                "type": "diagnoses"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Sign or Symptom",
+                "type": "diagnoses"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Substance",
+                "type": "causes"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Therapeutic or Preventive Procedure",
+                "type": "prevents"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Therapeutic or Preventive Procedure",
+                "type": "treats"
+            },
+            {
+                "flag": "D",
+                "other": "",
+                "relation": "Pathologic Function",
+                "inverseRelation": "Virus",
+                "type": "causes"
+            }
+        ],
+        "inheritedRelations": [
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "co-occurs_with",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "co-occurs_with",
+                "relation2": "Disease or Syndrome"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "co-occurs_with",
+                "relation2": "Mental or Behavioral Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "co-occurs_with",
+                "relation2": "Cell or Molecular Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "co-occurs_with",
+                "relation2": "Experimental Model of Disease"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "co-occurs_with",
+                "relation2": "Anatomical Abnormality"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "co-occurs_with",
+                "relation2": "Neoplastic Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "precedes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "precedes",
+                "relation2": "Disease or Syndrome"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "precedes",
+                "relation2": "Mental or Behavioral Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "precedes",
+                "relation2": "Cell or Molecular Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "precedes",
+                "relation2": "Experimental Model of Disease"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "precedes",
+                "relation2": "Neoplastic Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Organism"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Plant"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Fungus"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Virus"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Bacterium"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Animal"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Vertebrate"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Amphibian"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Bird"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Fish"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Reptile"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Mammal"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Human"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Biologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Physiologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Organism Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Mental Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Organ or Tissue Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Cell Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Molecular Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Genetic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Disease or Syndrome"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Mental or Behavioral Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Cell or Molecular Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Experimental Model of Disease"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Natural Phenomenon or Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Neoplastic Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Archaeon"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Eukaryote"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "produces",
+                "relation2": "Body Substance"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "produces",
+                "relation2": "Biologically Active Substance"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "produces",
+                "relation2": "Hormone"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "produces",
+                "relation2": "Enzyme"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "produces",
+                "relation2": "Vitamin"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "produces",
+                "relation2": "Immunologic Factor"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "produces",
+                "relation2": "Receptor"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "complicates",
+                "relation2": "Congenital Abnormality"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "complicates",
+                "relation2": "Acquired Abnormality"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "complicates",
+                "relation2": "Injury or Poisoning"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "complicates",
+                "relation2": "Disease or Syndrome"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "complicates",
+                "relation2": "Mental or Behavioral Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "complicates",
+                "relation2": "Cell or Molecular Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "complicates",
+                "relation2": "Experimental Model of Disease"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "complicates",
+                "relation2": "Anatomical Abnormality"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "complicates",
+                "relation2": "Neoplastic Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Injury or Poisoning"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Physiologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Organism Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Mental Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Organ or Tissue Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Cell Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Molecular Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Genetic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Disease or Syndrome"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Mental or Behavioral Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Cell or Molecular Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Experimental Model of Disease"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Neoplastic Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Organism"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Plant"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Fungus"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Virus"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Bacterium"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Animal"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Vertebrate"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Amphibian"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Bird"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Fish"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Reptile"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Mammal"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Human"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Biologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Physiologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Organism Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Mental Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Organ or Tissue Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Cell Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Molecular Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Genetic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Disease or Syndrome"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Mental or Behavioral Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Cell or Molecular Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Experimental Model of Disease"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Natural Phenomenon or Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Neoplastic Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Archaeon"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Eukaryote"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "occurs_in",
+                "relation2": "Injury or Poisoning"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "occurs_in",
+                "relation2": "Disease or Syndrome"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "occurs_in",
+                "relation2": "Mental or Behavioral Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "occurs_in",
+                "relation2": "Group"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "occurs_in",
+                "relation2": "Professional or Occupational Group"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "occurs_in",
+                "relation2": "Population Group"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "occurs_in",
+                "relation2": "Family Group"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "occurs_in",
+                "relation2": "Age Group"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "occurs_in",
+                "relation2": "Patient or Disabled Group"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "occurs_in",
+                "relation2": "Neoplastic Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Congenital Abnormality"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Acquired Abnormality"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Injury or Poisoning"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Biologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Physiologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Organism Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Mental Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Organ or Tissue Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Cell Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Molecular Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Genetic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Disease or Syndrome"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Mental or Behavioral Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Cell or Molecular Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Experimental Model of Disease"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Behavior"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Social Behavior"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Individual Behavior"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Health Care Activity"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Laboratory Procedure"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Diagnostic Procedure"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Therapeutic or Preventive Procedure"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Phenomenon or Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Human-caused Phenomenon or Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Environmental Effect of Humans"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Natural Phenomenon or Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Anatomical Abnormality"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Neoplastic Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "issue_in",
+                "relation2": "Occupation or Discipline"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "issue_in",
+                "relation2": "Biomedical Occupation or Discipline"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Disease or Syndrome"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Mental or Behavioral Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Cell or Molecular Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Experimental Model of Disease"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Individual Behavior"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Daily or Recreational Activity"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Occupational Activity"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Health Care Activity"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Laboratory Procedure"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Diagnostic Procedure"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Therapeutic or Preventive Procedure"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Research Activity"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Molecular Biology Research Technique"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Governmental or Regulatory Activity"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Educational Activity"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Geographic Area"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Population Group"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Sign or Symptom"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Neoplastic Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Clinical Attribute"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "degree_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "degree_of",
+                "relation2": "Disease or Syndrome"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "degree_of",
+                "relation2": "Mental or Behavioral Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "degree_of",
+                "relation2": "Cell or Molecular Dysfunction"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "degree_of",
+                "relation2": "Experimental Model of Disease"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "degree_of",
+                "relation2": "Neoplastic Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "isa",
+                "relation2": "Biologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "isa",
+                "relation2": "Event"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "isa",
+                "relation2": "Phenomenon or Process"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "isa",
+                "relation2": "Natural Phenomenon or Process"
+            }
+        ],
+        "inverseInheritedRelations": [
+            {
+                "relation1": "Fungus",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Virus",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Bacterium",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Embryonic Structure",
+                "relationType": "location_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Congenital Abnormality",
+                "relationType": "location_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Congenital Abnormality",
+                "relationType": "co-occurs_with",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Congenital Abnormality",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Congenital Abnormality",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Acquired Abnormality",
+                "relationType": "location_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Acquired Abnormality",
+                "relationType": "co-occurs_with",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Acquired Abnormality",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Acquired Abnormality",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Fully Formed Anatomical Structure",
+                "relationType": "location_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Body Part, Organ, or Organ Component",
+                "relationType": "location_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Tissue",
+                "relationType": "location_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell",
+                "relationType": "location_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell Component",
+                "relationType": "location_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Gene or Genome",
+                "relationType": "location_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Body Location or Region",
+                "relationType": "location_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Body Space or Junction",
+                "relationType": "location_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Body Substance",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Organism Attribute",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Organism Attribute",
+                "relationType": "associated_with",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Finding",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Finding",
+                "relationType": "evaluation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Finding",
+                "relationType": "associated_with",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Laboratory or Test Result",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Laboratory or Test Result",
+                "relationType": "indicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Laboratory or Test Result",
+                "relationType": "evaluation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Laboratory or Test Result",
+                "relationType": "associated_with",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Injury or Poisoning",
+                "relationType": "co-occurs_with",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Injury or Poisoning",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Injury or Poisoning",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Biologic Function",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Biologic Function",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Biologic Function",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Physiologic Function",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Physiologic Function",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Physiologic Function",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Organism Function",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Organism Function",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Organism Function",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Mental Process",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Mental Process",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Mental Process",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Organ or Tissue Function",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Organ or Tissue Function",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Organ or Tissue Function",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell Function",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell Function",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell Function",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Molecular Function",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Molecular Function",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Molecular Function",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Genetic Function",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Genetic Function",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Genetic Function",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "co-occurs_with",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "precedes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "associated_with",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pathologic Function",
+                "relationType": "degree_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Disease or Syndrome",
+                "relationType": "precedes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Disease or Syndrome",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Disease or Syndrome",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Disease or Syndrome",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Disease or Syndrome",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Disease or Syndrome",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Disease or Syndrome",
+                "relationType": "degree_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Disease or Syndrome",
+                "relationType": "isa",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Mental or Behavioral Dysfunction",
+                "relationType": "precedes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Mental or Behavioral Dysfunction",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Mental or Behavioral Dysfunction",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Mental or Behavioral Dysfunction",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Mental or Behavioral Dysfunction",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Mental or Behavioral Dysfunction",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Mental or Behavioral Dysfunction",
+                "relationType": "degree_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Mental or Behavioral Dysfunction",
+                "relationType": "isa",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell or Molecular Dysfunction",
+                "relationType": "precedes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell or Molecular Dysfunction",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell or Molecular Dysfunction",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell or Molecular Dysfunction",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell or Molecular Dysfunction",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell or Molecular Dysfunction",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell or Molecular Dysfunction",
+                "relationType": "degree_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Cell or Molecular Dysfunction",
+                "relationType": "isa",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Experimental Model of Disease",
+                "relationType": "precedes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Experimental Model of Disease",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Experimental Model of Disease",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Experimental Model of Disease",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Experimental Model of Disease",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Experimental Model of Disease",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Experimental Model of Disease",
+                "relationType": "degree_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Experimental Model of Disease",
+                "relationType": "isa",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Health Care Activity",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Laboratory Procedure",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Laboratory Procedure",
+                "relationType": "measures",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Laboratory Procedure",
+                "relationType": "diagnoses",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Laboratory Procedure",
+                "relationType": "assesses_effect_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Diagnostic Procedure",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Diagnostic Procedure",
+                "relationType": "measures",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Diagnostic Procedure",
+                "relationType": "diagnoses",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Therapeutic or Preventive Procedure",
+                "relationType": "prevents",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Therapeutic or Preventive Procedure",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Therapeutic or Preventive Procedure",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Therapeutic or Preventive Procedure",
+                "relationType": "treats",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Research Activity",
+                "relationType": "measures",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Molecular Biology Research Technique",
+                "relationType": "measures",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Phenomenon or Process",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Human-caused Phenomenon or Process",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Environmental Effect of Humans",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Natural Phenomenon or Process",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Natural Phenomenon or Process",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Natural Phenomenon or Process",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Manufactured Object",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Medical Device",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Medical Device",
+                "relationType": "prevents",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Medical Device",
+                "relationType": "treats",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Research Device",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Professional or Occupational Group",
+                "relationType": "diagnoses",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Chemical",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Chemical",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Chemical Viewed Structurally",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Chemical Viewed Structurally",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Organic Chemical",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Organic Chemical",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Nucleic Acid, Nucleoside, or Nucleotide",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Nucleic Acid, Nucleoside, or Nucleotide",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Amino Acid, Peptide, or Protein",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Amino Acid, Peptide, or Protein",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Chemical Viewed Functionally",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Chemical Viewed Functionally",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pharmacologic Substance",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pharmacologic Substance",
+                "relationType": "prevents",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pharmacologic Substance",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pharmacologic Substance",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pharmacologic Substance",
+                "relationType": "treats",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Pharmacologic Substance",
+                "relationType": "diagnoses",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Biomedical or Dental Material",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Biomedical or Dental Material",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Biologically Active Substance",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Biologically Active Substance",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Biologically Active Substance",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Hormone",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Hormone",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Hormone",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Enzyme",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Enzyme",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Enzyme",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Vitamin",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Vitamin",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Vitamin",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Immunologic Factor",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Immunologic Factor",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Immunologic Factor",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Immunologic Factor",
+                "relationType": "indicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Indicator, Reagent, or Diagnostic Aid",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Indicator, Reagent, or Diagnostic Aid",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Hazardous or Poisonous Substance",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Hazardous or Poisonous Substance",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Hazardous or Poisonous Substance",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Substance",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Food",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Food",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Sign or Symptom",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Sign or Symptom",
+                "relationType": "evaluation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Sign or Symptom",
+                "relationType": "diagnoses",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Anatomical Abnormality",
+                "relationType": "location_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Anatomical Abnormality",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Anatomical Abnormality",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Neoplastic Process",
+                "relationType": "precedes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Neoplastic Process",
+                "relationType": "process_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Neoplastic Process",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Neoplastic Process",
+                "relationType": "manifestation_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Neoplastic Process",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Neoplastic Process",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Neoplastic Process",
+                "relationType": "degree_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Neoplastic Process",
+                "relationType": "isa",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Receptor",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Receptor",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Receptor",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Antibiotic",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Antibiotic",
+                "relationType": "prevents",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Antibiotic",
+                "relationType": "complicates",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Antibiotic",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Antibiotic",
+                "relationType": "treats",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Antibiotic",
+                "relationType": "diagnoses",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Element, Ion, or Isotope",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Element, Ion, or Isotope",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Inorganic Chemical",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Inorganic Chemical",
+                "relationType": "affects",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Clinical Drug",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Clinical Attribute",
+                "relationType": "result_of",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Drug Delivery Device",
+                "relationType": "causes",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Drug Delivery Device",
+                "relationType": "prevents",
+                "relation2": "Pathologic Function"
+            },
+            {
+                "relation1": "Drug Delivery Device",
+                "relationType": "treats",
+                "relation2": "Pathologic Function"
+            }
+        ],
+        "childCount": 5,
+        "semanticTypeGroup": {
+            "classType": "SemanticGroup",
+            "abbreviation": "DISO",
+            "expandedForm": "Disorders",
+            "semanticTypeCount": 12
+        }
+    }
+}

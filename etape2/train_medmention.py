@@ -310,8 +310,7 @@ def main():
         if data_args.test_file is not None:
             data_files["test"] = data_args.test_file
             extension = data_args.test_file.split(".")[-1]
-        raw_datasets = load_dataset(extension, data_files={"full": data_args.train_file}, cache_dir=model_args.cache_dir)#!!!!!! pour accepter json dataset_concat.json
-        
+        raw_datasets = load_dataset('json', data_files=data_args.train_file, cache_dir=model_args.cache_dir, split='train')
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
     # https://huggingface.co/docs/datasets/loading_datasets.
 
@@ -327,11 +326,20 @@ def main():
             Tuple de 3 datasets (train, val, test)
         """
         # #!!!!!!!!!
-        if not isinstance(dataset, DatasetDict):#dataset pas encore split (comme dataset_concat.json)
-            dataset_combined = dataset  # utilise directement le dataset entier
-        # Cas 2 : dataset déjà splité (comme MedMentions)
-        else:
+        # Cas 1: Si c'est déjà un Dataset simple (non splité)
+        if not isinstance(dataset, DatasetDict):
+            dataset_combined = dataset
+        # Cas 2: Si c'est un DatasetDict avec split standard
+        elif all(split in dataset for split in ['train', 'validation', 'test']):
             dataset_combined = concatenate_datasets([dataset['train'], dataset['validation'], dataset['test']])
+        # Cas 3: Si c'est un DatasetDict avec une seule clé (votre cas actuel)
+        else:
+            # Prend la première et seule clé disponible
+            dataset_combined = dataset[next(iter(dataset.keys()))]
+
+
+        print(f"Dataset combiné avant split: {dataset_combined}")
+        print(f"Nombre d'exemples: {len(dataset_combined)}")
         #!!!!!!!
 
 
@@ -451,8 +459,7 @@ def main():
         for label in labels:
             unique_labels = unique_labels | set(label)
         #!!!! ignorer les IGN dans les prédictions 
-        if "IGN" in unique_labels:
-            unique_labels.remove("IGN")
+        unique_labels.discard("IGN")
         #!!!!
         label_list = list(unique_labels)
         label_list.sort()
@@ -481,6 +488,13 @@ def main():
         # print("label_list : Using TUI list #DEBUG")
         # label_list = get_label_list()
         label_to_id = {l: i for i, l in enumerate(label_list)}
+        #!!!!!!! debug 
+        print("\n=== Debug Labels ===")
+        print(f"Nombre total de labels uniques: {len(label_list)}")
+        print("Liste complète des labels:", label_list)
+        print("Exemple de mapping label -> ID:", {k: label_to_id[k] for k in list(label_to_id)[:5]})  # 5 premiers
+        print("===================\n")
+        #!!!!
 
     num_labels = len(label_list)
 
@@ -607,10 +621,11 @@ def main():
                 elif word_idx != previous_word_idx:
                     # !!!! les "IGN" sont ignorés dans les prédictions
                     current_label = label[word_idx]
-                    if current_label == "IGN":
-                        label_ids.append(-100)
+                    if current_label == "IGN" or current_label not in label_to_id:
+                        label_ids.append(-100)  # Ignorer ce token
                     else:
                         label_ids.append(label_to_id[current_label])
+                        
                     # !!!!
                 # For the other tokens in a word, we set the label to either the current label or -100, depending on
                 # the label_all_tokens flag.
