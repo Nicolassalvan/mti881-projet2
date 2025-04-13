@@ -38,7 +38,7 @@ python3  ~/mti881-projet2/etape1/train_medmention.py \
     --trust_remote_code=True \
     --overwrite_output_dir=True \
     --save_total_limit=3 \
-    --num_train_epochs=1 \
+    --num_train_epochs=15 \
     --data_seed=42 \
     --seed=42 \
     --return_entity_level_metrics=True \
