@@ -31,7 +31,7 @@ pip install -r ~/mti881-projet2/requirements.txt
 python3  ~/mti881-projet2/train_medmention.py \
     --model_name_or_path bert-base-uncased \
     --dataset_name ibm-research/MedMentions-ZS \
-    --output_dir ~/mti881-projet2/checkpoints/ \
+    --output_dir ~/mti881-projet2/checkpoints/$SLURM_JOB_ID/ \
     --do_train \
     --do_eval \
     --do_predict \
@@ -45,10 +45,11 @@ python3  ~/mti881-projet2/train_medmention.py \
     --eval_strategy=steps \
     --fp16 \
     --gradient_accumulation_steps=2 \
-    --learning_rate=1e-5 \
+    --learning_rate=5e-5 \
+    --lr_scheduler_type=reduce_on_plateau \
     --per_device_train_batch_size=16 \
     --per_device_eval_batch_size=16 \
-    --max_seq_length=64 \
+    --max_seq_length=128 \
     
 
 
