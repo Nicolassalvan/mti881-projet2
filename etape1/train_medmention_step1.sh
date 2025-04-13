@@ -46,7 +46,7 @@ python3  ~/mti881-projet2/etape1/train_medmention.py \
     --fp16 \
     --gradient_accumulation_steps=2 \
     --learning_rate=5e-5 \
-    --lr_scheduler_type=reduce_on_plateau \
+    --lr_scheduler_type=reduce_lr_on_plateau \
     --per_device_train_batch_size=16 \
     --per_device_eval_batch_size=16 \
     --max_seq_length=128 \
