@@ -65,7 +65,7 @@ curl -H "Content-Type: application/json" \
 # Analyse 
 python3 ~/mti881-projet2/analyse_metrics.py \
     --save_dir ~/mti881-projet2/etape1/figures/ \
-    --checkpoint_dir ~/mti881-projet2/etape1/checkpoints/ \
+    --checkpoint_dir ~/mti881-projet2/checkpoints/$SLURM_JOB_ID/ \
 
 # Envoi des résultats sur Discord
 python3 ~/mti881-projet2/send_discord.py \
