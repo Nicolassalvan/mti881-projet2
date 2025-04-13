@@ -6,6 +6,8 @@ Entraînement d'un LLM sur SLURM.
 
 # Installation 
 
+Veuillez créer un environnement virtuel dans ce répertoire avec la commande : `python -m venv ./venv`. Les bibliothèques nécessaires et leurs versions sont spécifiés dans le fichier `requirements.txt` et seront installés si nécessaires pendant le job. 
+
 #  Modifications du code original
 
 ## Etape 1 : Entraînement sur MedMention 
@@ -19,25 +21,5 @@ Entraînement d'un LLM sur SLURM.
     - `lorem ipsum`
     - `lorem ipsum`
     - `lorem ipsum`
-
-
-# Structure du code 
-
-## Dossier d'entraînement (`~/job/..`)
-
-Contient l'étape (0 ou 1 pour l'instant) et pour chaque étape, il y a les sous dossiers contenant les noms de jobs. Dans ces sous-dossiers, il y a les logs. 
-
-```{bash}
-~/job/ETAPE/NUMERO_JOB/output.log
-~/job/ETAPE/NUMERO_JOB/error.log
-```
-## Dossier de code source (`~/mti881_projet2/..`)
-
-```{bash}
-~/mti881_projet2/scripts
-~/mti881_projet2/umls
-~/mti881_projet2/venv
-~/mti881_projet2/data
-```
 
 

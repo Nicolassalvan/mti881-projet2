@@ -68,7 +68,7 @@ python3 ~/mti881-projet2/analyse_metrics.py \
     --checkpoint_dir ~/mti881-projet2/etape1/checkpoints/ \
 
 # Envoi des résultats sur Discord
-python3 ~/mti881-projet2/send_discord_message.py \
+python3 ~/mti881-projet2/send_discord.py \
     --webhook_url $WEBHOOK_URL \
     --img_dir ~/mti881-projet2/etape1/figures/ 
 
