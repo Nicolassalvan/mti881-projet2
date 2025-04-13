@@ -310,7 +310,8 @@ def main():
         if data_args.test_file is not None:
             data_files["test"] = data_args.test_file
             extension = data_args.test_file.split(".")[-1]
-        raw_datasets = load_dataset(extension, data_files=data_files, cache_dir=model_args.cache_dir) 
+        raw_datasets = load_dataset(extension, data_files={"full": data_args.train_file}, cache_dir=model_args.cache_dir)#!!!!!! pour accepter json dataset_concat.json
+        
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
     # https://huggingface.co/docs/datasets/loading_datasets.
 
@@ -325,9 +326,13 @@ def main():
         Returns:
             Tuple de 3 datasets (train, val, test)
         """
-        
-        dataset_combined = concatenate_datasets([dataset['train'], dataset['validation'], dataset['test']])
-        
+        # #!!!!!!!!!
+        if not isinstance(dataset, DatasetDict):#dataset pas encore split (comme dataset_concat.json)
+            dataset_combined = dataset  # utilise directement le dataset entier
+        # Cas 2 : dataset déjà splité (comme MedMentions)
+        else:
+            dataset_combined = concatenate_datasets([dataset['train'], dataset['validation'], dataset['test']])
+        #!!!!!!!
 
 
         np.random.seed(seed)
@@ -445,6 +450,10 @@ def main():
         unique_labels = set()
         for label in labels:
             unique_labels = unique_labels | set(label)
+        #!!!! ignorer les IGN dans les prédictions 
+        if "IGN" in unique_labels:
+            unique_labels.remove("IGN")
+        #!!!!
         label_list = list(unique_labels)
         label_list.sort()
         return label_list
@@ -596,7 +605,13 @@ def main():
                     label_ids.append(-100)
                 # We set the label for the first token of each word.
                 elif word_idx != previous_word_idx:
-                    label_ids.append(label_to_id[label[word_idx]])
+                    # !!!! les "IGN" sont ignorés dans les prédictions
+                    current_label = label[word_idx]
+                    if current_label == "IGN":
+                        label_ids.append(-100)
+                    else:
+                        label_ids.append(label_to_id[current_label])
+                    # !!!!
                 # For the other tokens in a word, we set the label to either the current label or -100, depending on
                 # the label_all_tokens flag.
                 else:
