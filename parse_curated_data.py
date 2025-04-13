@@ -17,10 +17,10 @@ def normalize_cui(cui): #juste ajouter un 0 au CUI pour que la requete API fonct
 
 def extract_cuis_from_xmi(xmi_content):
     import re
-    cuis = re.findall(r'UMLSCUI="([^"]+)"', xmi_content)  # extraire les CUI du .xmi basés sur l'attribut IDUMLS ou CUI (dépend de la team)
+    cuis = re.findall(r'IDUMLS="([^"]+)"', xmi_content)  # extraire les CUI du .xmi basés sur l'attribut IDUMLS ou CUI (dépend de la team)
     return cuis
 
-def extract_mentions_from_xmi(xmi_content): #pour les teams 1, 3, 4, 5, 6
+def extract_mentions_from_xmi(xmi_content):
     # charger le XML
     root = ET.fromstring(xmi_content)
 
@@ -35,7 +35,7 @@ def extract_mentions_from_xmi(xmi_content): #pour les teams 1, 3, 4, 5, 6
 
     # cherche les éléments annotés avec un attribut CUI
     for elem in root.iter():
-        cui = elem.attrib.get('UMLSCUI') #pour team6 -> IDUMLS, pour team3 -> CUI
+        cui = elem.attrib.get('IDUMLS') #pour team6 -> IDUMLS, pour team3 -> CUI
         if cui:
             begin = elem.attrib.get('begin')
             end = elem.attrib.get('end')
@@ -46,41 +46,6 @@ def extract_mentions_from_xmi(xmi_content): #pour les teams 1, 3, 4, 5, 6
                     "cui": cui
                 })
 
-    return mentions
-
-
-def extract_mentions_from_xmi_team2(xmi_content): #pour la team2 uniquement car structure du xmi différente
-    root = ET.fromstring(xmi_content)
-    mentions = []
-    
-    # Namespaces spécifiques à ce fichier
-    ns = {
-        'custom': 'http:///webanno/custom.ecore',
-        'cas': 'http:///uima/cas.ecore'
-    }
-    
-    # Trouver toutes les entités UMLS
-    for entity in root.findall('.//custom:EntitsUMLS', namespaces=ns):
-        cui = entity.get('UMLSCUI')
-        typesem = entity.get('Typesmantique')  # Optionnel: pour vérification
-        begin = entity.get('begin')
-        end = entity.get('end')
-        
-        if cui and begin and end:
-            mentions.append({
-                "begin": int(begin),
-                "end": int(end),
-                "cui": cui,
-                "type": typesem  # Ajout optionnel pour debug
-            })
-    
-    # Debug: afficher les entités trouvées
-    print(f"Entités trouvées ({len(mentions)}):")
-    for i, m in enumerate(mentions[:5]):  # Afficher les 5 premières pour vérification
-        print(f"{i+1}. CUI: {m['cui']}, Type: {m['type']}, Positions: {m['begin']}-{m['end']}")
-    if len(mentions) > 5:
-        print(f"... et {len(mentions)-5} autres entités")
-    
     return mentions
 
 
@@ -99,7 +64,7 @@ def parse_xmi_to_medmention_format(xmi_file_path, clef_api, output_file_path, ou
     text_content = sofa_element.attrib["sofaString"]
 
     # extraire cuis du fichier XMI
-    mentions = extract_mentions_from_xmi_team2(xmi_content)
+    mentions = extract_mentions_from_xmi(xmi_content)
     cuis = list({mention["cui"] for mention in mentions})
 
     print("les CUIs sont ici :", cuis)
@@ -155,8 +120,8 @@ def parse_xmi_to_medmention_format(xmi_file_path, clef_api, output_file_path, ou
         
         # appliquer les annotations BIO2
         for i, token_idx in enumerate(mention_token_indices):
-            if tui == -100:
-                annotations_bio2[token_idx] = -100
+            if tui == "IGN":
+                annotations_bio2[token_idx] = "IGN"
             else:
                 if i == 0:
                     annotations_bio2[token_idx] = f"B-{tui}"
@@ -254,8 +219,8 @@ def process_all_xmi_files(root_dir, clef_api, output_json_path):
 
 if __name__ == "__main__":
     # Configurer les chemins
-    root_directory = "./etape2/data/curated_team2/" #à adapter en fonction de l'équipe à parser
-    output_path = "./umls/curated_data_team2.json"
+    root_directory = "./etape2/data/curated_team6/" #à adapter en fonction de l'équipe à parser
+    output_path = "./umls/curated_data_team6.json"
     
     # Charger la clé API
     with open("C:/Users/tecz/DDCANADA1/MTI881/mti881-projet2/umls/apikey.local", "r") as f:

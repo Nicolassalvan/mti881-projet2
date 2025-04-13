@@ -18,6 +18,7 @@ Fine-tuning the library models for token classification.
 """
 
 path_tui_list = "~/mti881-projet2/umls/tui_list.csv"
+import json
 import logging
 import os
 import sys
@@ -206,12 +207,6 @@ class DataTrainingArguments:
         metadata={"help": "Whether to return all the entity levels during evaluation or just the overall ones."},
     )
 
-    #!!!hyperparametres
-    learning_rate: float = field(default=5e-5, metadata={"help": "The initial learning rate for AdamW."})
-    weight_decay: float = field(default=0.0, metadata={"help": "Weight decay for AdamW if we apply some."})#pour le processus de regularisation
-    num_train_epochs: int = field(default=3, metadata={"help": "Total number of training epochs to perform."})
-    per_device_train_batch_size: int = field(default=8, metadata={"help": "Batch size per GPU/TPU core/CPU for training."})
-    #!!!
 
     def __post_init__(self):
         if self.dataset_name is None and self.train_file is None and self.validation_file is None:
@@ -231,7 +226,7 @@ def main():
     # or by passing the --help flag to this script.
     # We now keep distinct sets of args, for a cleaner separation of concerns.
 
-    parser = HfArgumentParser((ModelArguments, DataTrainingArguments, TrainingArguments))
+    parser = HfArgumentParser((ModelArguments, DataTrainingArguments, TrainingArguments)) 
     if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
         # If we pass only one argument to the script and it's the path to a json file,
         # let's parse it to get our arguments.

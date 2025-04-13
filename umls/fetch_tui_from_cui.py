@@ -22,9 +22,9 @@ def get_tuis_from_cui(id, key):
             return tuis #!!!!!! modifié 
         else:
             #print("TUI : Aucune information trouvée")
-            return [-100] #!!!!! si aucun TUI n'est trouvé 
+            return ["IGN"] #!!!!! si aucun TUI n'est trouvé 
     except : 
-        return [-100]
+        return ["IGN"]
 
 # def get_tuis_from_cui(id):
 #     tuis_df = pd.read_csv("tui_list.csv")
