@@ -8,6 +8,11 @@ Entraînement d'un LLM sur SLURM.
 
 Veuillez créer un environnement virtuel dans ce répertoire avec la commande : `python -m venv ./venv` à la racine du projet. Les bibliothèques nécessaires et leurs versions sont spécifiés dans le fichier `requirements.txt` et seront installés si nécessaires pendant le job. 
 
+Si vous rencontrez un problème de retour à la Ligne "\r\n" vs "\n" au moment de lancer les fichiers sh, utilisez la commande suivante : 
+```{bash}
+sed -i 's/\r//g' train_model_medMention.sh
+```
+
 Pour communiquer les résultats, on utilise un webhook discord. Si vous voulez utiliser cette option, il faut décommenter l'appel au script python `python3 ~/mti881-projet2/send_discord.py --webhook_url $WEBHOOK_URL --img_dir ~/mti881-projet2/etape1/figures/ ` et remplacer la variable gloabale `WEBHOOK_URL` par votre webhook. 
 
 # Lancement du code 
