@@ -68,9 +68,9 @@ class ModelArguments:
     Arguments pertaining to which model/config/tokenizer we are going to fine-tune from.
     """
 
-    model_name_or_path: str = field(#!!!!!nouveau modele
+    model_name_or_path: str = field(
         default="EleutherAI/gpt-neo-1.3B",metadata={"help": "Path to pretrained model or model identifier from huggingface.co/models"}
-    )#!!!!!
+    )
     config_name: Optional[str] = field(
         default=None, metadata={"help": "Pretrained config name or path if not the same as model_name"}
     )
@@ -325,22 +325,19 @@ def main():
         Returns:
             Tuple de 3 datasets (train, val, test)
         """
-        # #!!!!!!!!!
-        # Cas 1: Si c'est déjà un Dataset simple (non splité)
+        
         if not isinstance(dataset, DatasetDict):
             dataset_combined = dataset
-        # Cas 2: Si c'est un DatasetDict avec split standard
+
         elif all(split in dataset for split in ['train', 'validation', 'test']):
             dataset_combined = concatenate_datasets([dataset['train'], dataset['validation'], dataset['test']])
-        # Cas 3: Si c'est un DatasetDict avec une seule clé (votre cas actuel)
+
         else:
-            # Prend la première et seule clé disponible
             dataset_combined = dataset[next(iter(dataset.keys()))]
 
 
         print(f"Dataset combiné avant split: {dataset_combined}")
         print(f"Nombre d'exemples: {len(dataset_combined)}")
-        #!!!!!!!
 
 
         np.random.seed(seed)
@@ -458,9 +455,8 @@ def main():
         unique_labels = set()
         for label in labels:
             unique_labels = unique_labels | set(label)
-        #!!!! ignorer les IGN dans les prédictions 
+        #ignorer les IGN dans les prédictions 
         unique_labels.discard("IGN")
-        #!!!!
         label_list = list(unique_labels)
         label_list.sort()
         return label_list
