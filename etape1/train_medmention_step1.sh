@@ -4,7 +4,7 @@
 #SBATCH --job-name=step-1-medmention  # Nom du job
 #SBATCH --mem=8G  # Mémoire requise
 #SBATCH --gres=gpu:1  # Nombre de GPU requis - ne pas modifier !!!
-#SBATCH --time=01:00:00  # Temps d'exécution demandé (hh:mm:ss) - Ne pas dépasser 7h
+#SBATCH --time=06:00:00  # Temps d'exécution demandé (hh:mm:ss) - Ne pas dépasser 7h
 
 #SBATCH --chdir=../job/step-1-medmention   # Répertoire de travail
 
@@ -73,5 +73,8 @@ python3 ~/mti881-projet2/analyse_metrics.py \
 python3 ~/mti881-projet2/send_discord.py \
     --webhook_url $WEBHOOK_URL \
     --img_dir ~/mti881-projet2/etape1/figures/ 
+
+# Copie des outputs et erreur 
+cp -r ~/job/step-1-medmention/$SLURM_JOB_ID/*.log ~/mti881-projet2/etape1/logs/$SLURM_JOB_ID/ 
 
 deactivate 
