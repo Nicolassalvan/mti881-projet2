@@ -19,6 +19,17 @@ cd ~/mti881-projet2/
 sbatch etape1/train_medmention_step1.sh
 ```
 
+Pour l'étape 1: 
+Les fichiers curated_data_teami.json représentent les données curées parsées sous forme de json. Obtenus avec le code parse_curated_data.py (exécuté localement).
+Le fichier dataset_concat.json et la concaténation de ce fichiers avec MedMention. Obtenu grâce à concat_curated_data.py (exécuté localement).
+dataset_concat.json est utilisé en entrée du script train_medmention_step2.sh avec l'argument --train_file.
+
+```{bash}
+cd ~/mti881-projet2/
+sbatch etape2/scripts/train_medmention_step2.sh
+```
+
+
 #  Modifications du code original
 
 ## Etape 1 : Entraînement sur MedMention 
