@@ -4,12 +4,10 @@
 #SBATCH --job-name=step-1-medmention  # Nom du job
 #SBATCH --mem=8G  # Mémoire requise
 #SBATCH --gres=gpu:1  # Nombre de GPU requis - ne pas modifier !!!
-#SBATCH --time=01:00:00  # Temps d'exécution demandé (hh:mm:ss) - Ne pas dépasser 7h
-
-#SBATCH --chdir=../job/step-1-medmention   # Répertoire de travail
-
-#SBATCH --output=%j/output.log  # Fichier de sortie
-#SBATCH --error=%j/error.log  # Fichier d'erreur
+#SBATCH --time=07:00:00  # Temps d'exécution demandé (hh:mm:ss) - Ne pas dépasser 7h
+#SBATCH --chdir=../   # Répertoire de travail
+#SBATCH --output=job/slurm-%j.out  # Fichier de sortie
+#SBATCH --error=job/slurm-%j.err # Fichier d'erreur
 
 echo "Working directory: $(pwd)"
 echo "Starting at $(date)"
@@ -55,5 +53,18 @@ curl -H "Content-Type: application/json" \
      -X POST \
      -d "{\"content\": \"$MESSAGE\"}" \
      $WEBHOOK_URL
+
+# Analyse 
+echo "Analyse des résultats"
+
+python3 ~/mti881-projet2/analyse_metrics.py \
+    --save_dir ~/mti881-projet2/etape4/figures/ \
+    --checkpoint_dir ~/mti881-projet2/etape4/test-ner/ \
+
+# Envoi des résultats sur Discord
+python3 ~/mti881-projet2/send_discord.py \
+    --webhook_url $WEBHOOK_URL \
+    --img_dir ~/mti881-projet2/etape4/figures/ 
+
 
 deactivate 
