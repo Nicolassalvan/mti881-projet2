@@ -81,6 +81,6 @@ Dans le code, vous pouvez observer précisément les parties qui ont été modif
 
 ## Etape 4 : Thème libre
 
--**utilisation optuna**
--**loss pondérée**
+-**utilisation optuna** : utiliser run_hyperparam_optimization.sh pour tester avec une loss pondérée en meme temps directement imbriquée dans le code. 
+-**loss pondérée** : définie dans le fichier loss.py 
 
