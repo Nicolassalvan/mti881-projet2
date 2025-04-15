@@ -58,15 +58,13 @@ curl -H "Content-Type: application/json" \
 echo "Analyse des résultats"
 
 python3 ~/mti881-projet2/analyse_metrics.py \
-    --save_dir ~/mti881-projet2/etape1/figures/ \
-    --checkpoint_dir ~/mti881-projet2/etape1/checkpoints/$SLURM_JOB_ID/ \
+    --save_dir ~/mti881-projet2/etape2/figures/ \
+    --checkpoint_dir ~/mti881-projet2/etape2/checkpoints/$SLURM_JOB_ID/ \
 
 # Envoi des résultats sur Discord
 python3 ~/mti881-projet2/send_discord.py \
     --webhook_url $WEBHOOK_URL \
-    --img_dir ~/mti881-projet2/etape1/figures/ 
+    --img_dir ~/mti881-projet2/etape2/figures/ 
 
-# Copie des outputs et erreur 
-cp -r ~/job/step-1-medmention/$SLURM_JOB_ID/*.log ~/mti881-projet2/etape1/logs/$SLURM_JOB_ID/ 
 
 deactivate 
