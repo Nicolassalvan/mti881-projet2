@@ -23,7 +23,7 @@ Pour l'étape 2:
 
 Les fichiers curated_data_teami.json représentent les données curées parsées sous forme de json. Obtenus avec le code parse_curated_data.py (exécuté localement).
 Le fichier dataset_concat.json et la concaténation de ce fichiers avec MedMention. Obtenu grâce à concat_curated_data.py (exécuté localement).
-Le code python parse_curated_data.py nécessite l'installation de pour être testé. Il faut ajouter sur la venv l'installation suivante : 
+Le code python parse_curated_data.py nécessite l'installation du modèle linguistique en_core_web_sm de spacy pour être testé, car il s’appuie sur les fonctionnalités de tokenisation et d’analyse linguistique fournies par ce modèle. Il faut ajouter sur la venv l'installation suivante : 
 
 ```{bash}
 python -m spacy download en_core_web_sm
