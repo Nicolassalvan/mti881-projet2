@@ -24,7 +24,8 @@ export HF_HOME=~/mti881-projet2/etape1/.cache/
 
 source ~/mti881-projet2/venv/bin/activate
 
-python3 -m pip install --upgrade pip 
+which pip  # Doit pointer vers ~/mti881-projet2/venv/bin/pip
+pip install --upgrade pip
 pip install -r ~/mti881-projet2/requirements.txt
 
 # # Exécution du script - rajouter eventuellement max_seq_length=256 per_device_train_batch_size=8 learning_rate=1r-5 car fine-tuning 
