@@ -46,5 +46,27 @@ python3  ./train_medmention.py \
     --fp16 \
     --gradient_accumulation_steps=2
 
+WEBHOOK_URL="https://discord.com/api/webhooks/1353477405624373289/-UN_D0e9qnOhK7lqVqEXLkQdCPTJn13bPNIrMn3kVRe5OfYapzS7kGN59Kn9y9mcjJcx"
+MESSAGE="Job terminé : $SLURM_JOB_NAME (ID: $SLURM_JOB_ID)"
 
-deactivate
+curl -H "Content-Type: application/json" \
+     -X POST \
+     -d "{\"content\": \"$MESSAGE\"}" \
+     $WEBHOOK_URL
+
+# Analyse 
+echo "Analyse des résultats"
+
+python3 ~/mti881-projet2/analyse_metrics.py \
+    --save_dir ~/mti881-projet2/etape1/figures/ \
+    --checkpoint_dir ~/mti881-projet2/etape1/checkpoints/$SLURM_JOB_ID/ \
+
+# Envoi des résultats sur Discord
+python3 ~/mti881-projet2/send_discord.py \
+    --webhook_url $WEBHOOK_URL \
+    --img_dir ~/mti881-projet2/etape1/figures/ 
+
+# Copie des outputs et erreur 
+cp -r ~/job/step-1-medmention/$SLURM_JOB_ID/*.log ~/mti881-projet2/etape1/logs/$SLURM_JOB_ID/ 
+
+deactivate 
