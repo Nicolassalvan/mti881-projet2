@@ -75,7 +75,12 @@ Dans le code, vous pouvez observer précisément les parties qui ont été modif
 
 - **Modification du modèle pré entraîné** : modification de model_name_or_path dans ModelArguments pour appeler le modèle GPT Néo 1.3B.
   
-- **Adaptation du tokenizer** : GPT-Neo ne possède pas de token de padding par défaut, donc on en ajoute un pour éviter les erreurs lors du batch padding avec pad_token="<|pad|>". De plus, add_prefix_space=True permet de respecter les débuts de mots après un espace. On considérera " Hello" et "Hello" de la même façon. 
+- **Adaptation du tokenizer** : GPT-Neo ne possède pas de token de padding par défaut, donc on en ajoute un pour éviter les erreurs lors du batch padding avec pad_token="<|pad|>". De plus, add_prefix_space=True permet de respecter les débuts de mots après un espace. On considérera " Hello" et "Hello" de la même façon.
 
+- **Gestion de l'entraînement adaptée** : utilisation de accelerate permet de facilement tirer parti du multi-GPU sans avoir à gérer manuellement la distribution. Permet réduire la mémoire GPU et accélérer l'entraînement, ce qui est important pour un gros modèle comme GPT-Neo 1.3B. Configuration définie via un fichier YAML clair (accelerate_config.yaml).
 
+## Etape 4 : Thème libre
+
+-**utilisation optuna**
+-**loss pondérée**
 
