@@ -26,7 +26,7 @@ sbatch etape1/train_medmention_step1.sh
 
 Pour l'étape 2: 
 
-Les fichiers curated_data_team[i].json représentent les données curées parsées sous forme de json. Obtenus avec le code parse_curated_data.py (exécuté localement).
+Les fichiers curated_data_teami.json représentent les données curées parsées sous forme de json. Obtenus avec le code parse_curated_data.py (exécuté localement).
 Le fichier dataset_concat.json et la concaténation de ce fichiers avec MedMention. Obtenu grâce à concat_curated_data.py (exécuté localement).
 Le code python parse_curated_data.py nécessite l'installation du modèle linguistique en_core_web_sm de spacy pour être testé, car il s’appuie sur les fonctionnalités de tokenisation et d’analyse linguistique fournies par ce modèle. Il faut ajouter sur la venv l'installation suivante : 
 
@@ -52,10 +52,12 @@ sbatch etape2/scripts/train_medmention_step2.sh
 
 - **Modification des labels** : Modification de la fonction `get_label_list` qui renvoit la liste des TUI (identifiants sémantiques) au format BIO, qui sont utilisés par MedMention. Renvoit la liste complète car cela change rarement, et la dimension n'augmente pas tant. Nous avons trouvé une liste sur UMLS que nous avons converti en CSV (dans `umls/tui_list.csv`). On a aussi rajouté la bibliothèque pandas aux requirements pour sa fonction `pandas.read_csv`. Finalement, cette méthode n'est pas très concluante et les résultats de l'évaluation sont biaisés. On va essayer de faire plutôt un mapping. Un mapping UMLS dans ce contexte permet de convertir dynamiquement les labels absents (TUIs non vus lors de l'entraînement) en leurs parents hiérarchiques les plus proches parmi les labels déjà appris par le modèle. 
 
-- **Options du modèle** : Modification du script, pour changer le dataset avec l'option `--dataset_name ibm-research/MedMentions-ZS`. On modifie aussi le nom du job et d'autres paramètres (à décrire en s'aidant de l'aide) :
+- **Options du modèle** : Modification du script, pour changer le dataset avec l'option `--dataset_name ibm-research/MedMentions-ZS`. On modifie aussi le nom du job.
 
-    - `lorem ipsum`
-    - `lorem ipsum`
-    - `lorem ipsum`
 
+
+## Etape 2 : Ajouter des données annotées du cours MTI881
+
+- **Parsing des données curées avec INCEpTION** (parse_curated_data.py) : Utilisation spaCy pour tokeniser les données curées (fichiers XMI), normalisation et association des identifiants médicaux (CUIs et TUIs) via l'API UMLS, puis convertion des données en format MedMentions avec annotations BIO2, en sauvegardant le tout en JSON. Permet de fournir les fichiers curated_data_teami.json. Les entités pour lesquelles on ne trouve pas de TUI via l'API sont annotées "IGN".
+- **Concaténation des données des équipes avec MedMention** (concat_curated_data) : Chargement et concaténation des données médicales curées avec l'ensemble de données MedMentions-ZS, en utilisant la bibliothèque datasets de Hugging Face. On lit plusieurs fichiers JSON contenant des données curées, les convertit en objets Dataset, puis les fusionne avec MedMentions. Le script vérifie la compatibilité des formats, effectue des tests aléatoires sur les données combinées et sauvegarde le résultat en JSON.
 
