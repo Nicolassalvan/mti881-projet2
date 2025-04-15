@@ -6,6 +6,7 @@ Entraînement d'un LLM sur SLURM.
 
 # Installation 
 
+Veuillez nommer le répertoire racine "mti881-projet2".
 Veuillez créer un environnement virtuel dans ce répertoire avec la commande : `python -m venv ./venv` à la racine du projet. Les bibliothèques nécessaires et leurs versions sont spécifiés dans le fichier `requirements.txt` et seront installés si nécessaires pendant le job. 
 
 Si vous rencontrez un problème de retour à la Ligne "\r\n" vs "\n" au moment de lancer les fichiers sh, utilisez la commande suivante : 
@@ -58,6 +59,9 @@ sbatch etape2/scripts/train_medmention_step2.sh
 
 ## Etape 2 : Ajouter des données annotées du cours MTI881
 
-- **Parsing des données curées avec INCEpTION** (parse_curated_data.py) : Utilisation spaCy pour tokeniser les données curées (fichiers XMI), normalisation et association des identifiants médicaux (CUIs et TUIs) via l'API UMLS, puis convertion des données en format MedMentions avec annotations BIO2, en sauvegardant le tout en JSON. Permet de fournir les fichiers curated_data_teami.json. Les entités pour lesquelles on ne trouve pas de TUI via l'API sont annotées "IGN".
+- **Parsing des données curées avec INCEpTION** (parse_curated_data.py) : Utilisation spaCy pour tokeniser les données curées (fichiers XMI), normalisation et association des identifiants médicaux (CUIs et TUIs) via l'API UMLS, puis convertion des données en format MedMentions avec annotations BIO2, en sauvegardant le tout en JSON. Permet de fournir les fichiers curated_data_teami.json. Les entités pour lesquelles on ne trouve pas de TUI via l'API sont annotées "IGN". Utilise les fonctions de fetch_tui_from_cui.py.
+  
 - **Concaténation des données des équipes avec MedMention** (concat_curated_data) : Chargement et concaténation des données médicales curées avec l'ensemble de données MedMentions-ZS, en utilisant la bibliothèque datasets de Hugging Face. On lit plusieurs fichiers JSON contenant des données curées, les convertit en objets Dataset, puis les fusionne avec MedMentions. Le script vérifie la compatibilité des formats, effectue des tests aléatoires sur les données combinées et sauvegarde le résultat en JSON.
+
+- **Modification de l'entrainement** : On annote les tokens annotés comme "IGN" en -100 pour qu'ils soient ignorés par le modèle à l'entraînement
 
