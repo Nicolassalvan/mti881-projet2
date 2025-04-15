@@ -59,9 +59,23 @@ sbatch etape2/scripts/train_medmention_step2.sh
 
 ## Etape 2 : Ajouter des données annotées du cours MTI881
 
+Dans le code, vous pouvez observer précisément les parties qui ont été modifiées, elles sont délimitées par "#!!!".
+
 - **Parsing des données curées avec INCEpTION** (parse_curated_data.py) : Utilisation spaCy pour tokeniser les données curées (fichiers XMI), normalisation et association des identifiants médicaux (CUIs et TUIs) via l'API UMLS, puis convertion des données en format MedMentions avec annotations BIO2, en sauvegardant le tout en JSON. Permet de fournir les fichiers curated_data_teami.json. Les entités pour lesquelles on ne trouve pas de TUI via l'API sont annotées "IGN". Utilise les fonctions de fetch_tui_from_cui.py.
   
 - **Concaténation des données des équipes avec MedMention** (concat_curated_data) : Chargement et concaténation des données médicales curées avec l'ensemble de données MedMentions-ZS, en utilisant la bibliothèque datasets de Hugging Face. On lit plusieurs fichiers JSON contenant des données curées, les convertit en objets Dataset, puis les fusionne avec MedMentions. Le script vérifie la compatibilité des formats, effectue des tests aléatoires sur les données combinées et sauvegarde le résultat en JSON.
 
-- **Modification de l'entrainement** : On annote les tokens annotés comme "IGN" en -100 pour qu'ils soient ignorés par le modèle à l'entraînement
+- **Modification de l'entrainement** : On annote les tokens annotés comme "IGN" en -100 pour qu'ils soient ignorés par le modèle à l'entraînement. On a aussi adapté le code à la structure de dataset_concat.json qui n'est pas délimité en train, test, eval par défaut (dans balanced_split).
+
+
+
+## Etape 3 : Modifier l’entraînement pour utiliser un modèle génératif
+
+Dans le code, vous pouvez observer précisément les parties qui ont été modifiées, elles sont délimitées par "#!!!".
+
+- **Modification du modèle pré entraîné** : modification de model_name_or_path dans ModelArguments pour appeler le modèle GPT Néo 1.3B.
+  
+- **Adaptation du tokenizer** : GPT-Neo ne possède pas de token de padding par défaut, donc on en ajoute un pour éviter les erreurs lors du batch padding avec pad_token="<|pad|>". De plus, add_prefix_space=True permet de respecter les débuts de mots après un espace. On considérera " Hello" et "Hello" de la même façon. 
+
+
 
