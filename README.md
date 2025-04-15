@@ -6,7 +6,7 @@ Entraînement d'un LLM sur SLURM.
 
 # Installation 
 
-Veuillez créer un environnement virtuel dans ce répertoire avec la commande : `python -m venv ./venv`. Les bibliothèques nécessaires et leurs versions sont spécifiés dans le fichier `requirements.txt` et seront installés si nécessaires pendant le job. 
+Veuillez créer un environnement virtuel dans ce répertoire avec la commande : `python -m venv ./venv` à la racine du projet. Les bibliothèques nécessaires et leurs versions sont spécifiés dans le fichier `requirements.txt` et seront installés si nécessaires pendant le job. 
 
 Pour communiquer les résultats, on utilise un webhook discord. Si vous voulez utiliser cette option, il faut décommenter l'appel au script python `python3 ~/mti881-projet2/send_discord.py --webhook_url $WEBHOOK_URL --img_dir ~/mti881-projet2/etape1/figures/ ` et remplacer la variable gloabale `WEBHOOK_URL` par votre webhook. 
 
@@ -19,7 +19,7 @@ cd ~/mti881-projet2/
 sbatch etape1/train_medmention_step1.sh
 ```
 
-Pour l'étape 1: 
+Pour l'étape 2: 
 Les fichiers curated_data_teami.json représentent les données curées parsées sous forme de json. Obtenus avec le code parse_curated_data.py (exécuté localement).
 Le fichier dataset_concat.json et la concaténation de ce fichiers avec MedMention. Obtenu grâce à concat_curated_data.py (exécuté localement).
 dataset_concat.json est utilisé en entrée du script train_medmention_step2.sh avec l'argument --train_file.
