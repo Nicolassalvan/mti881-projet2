@@ -19,3 +19,4 @@ seaborn==0.13.2
 optuna==3.5.0
 #pour etape3
 accelerate>=0.27.0
+spacy==3.8.5
