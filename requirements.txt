@@ -17,6 +17,7 @@ matplotlib==3.8.0
 seaborn==0.13.2
 #pour optim hyperparamètres
 optuna==3.5.0
+#pour parsing
+spacy==3.8.5
 #pour etape3
 accelerate>=0.27.0
-spacy==3.8.5
