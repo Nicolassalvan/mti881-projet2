@@ -326,15 +326,15 @@ def main():
             Tuple de 3 datasets (train, val, test)
         """
         # #!!!!!!!!!
-        # Cas 1: Si c'est déjà un Dataset simple (non splité)
+        # si on a deja un dataset simple (non splité)
         if not isinstance(dataset, DatasetDict):
             dataset_combined = dataset
-        # Cas 2: Si c'est un DatasetDict avec split standard
+        # si on a un dataset avec split standard
         elif all(split in dataset for split in ['train', 'validation', 'test']):
             dataset_combined = concatenate_datasets([dataset['train'], dataset['validation'], dataset['test']])
-        # Cas 3: Si c'est un DatasetDict avec une seule clé (votre cas actuel)
+        # si on a DatasetDict avec une seule clé
         else:
-            # Prend la première et seule clé disponible
+            # prend la première et seule clé disponible
             dataset_combined = dataset[next(iter(dataset.keys()))]
 
 
