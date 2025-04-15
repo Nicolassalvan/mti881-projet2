@@ -6,7 +6,7 @@
 #SBATCH --gres=gpu:1  # Nombre de GPU requis - ne pas modifier !!!
 #SBATCH --time=06:00:00  # Temps d'exécution demandé (hh:mm:ss) - Ne pas dépasser 7h
 
-#SBATCH --chdir=../job/step-1-medmention   # Répertoire de travail
+#SBATCH --chdir=../etape1/job/step-1-medmention   # Répertoire de travail
 
 #SBATCH --output=%j/output.log  # Fichier de sortie
 #SBATCH --error=%j/error.log  # Fichier d'erreur
@@ -20,7 +20,7 @@ echo "Directory ~ : $(ls ~)"
 # Prepare environment
 nvidia-smi
 
-export HF_HOME=~/mti881-projet2/.cache/
+export HF_HOME=~/mti881-projet2/etape1/.cache/
 
 source ~/mti881-projet2/venv/bin/activate
 
@@ -75,6 +75,6 @@ python3 ~/mti881-projet2/send_discord.py \
     --img_dir ~/mti881-projet2/etape1/figures/ 
 
 # Copie des outputs et erreur 
-cp -r ~/job/step-1-medmention/$SLURM_JOB_ID/*.log ~/mti881-projet2/etape1/logs/$SLURM_JOB_ID/ 
+cp -r ~/mti881-projet2/etape1/job/step-1-medmention/$SLURM_JOB_ID/*.log ~/mti881-projet2/etape1/logs/$SLURM_JOB_ID/ 
 
 deactivate 
