@@ -59,7 +59,7 @@ echo "Analyse des résultats"
 
 python3 ~/mti881-projet2/analyse_metrics.py \
     --save_dir ~/mti881-projet2/etape2/figures/ \
-    --checkpoint_dir ~/mti881-projet2/etape2/checkpoints/$SLURM_JOB_ID/ \
+    --checkpoint_dir ~/mti881-projet2/etape2/test-ner/ \
 
 # Envoi des résultats sur Discord
 python3 ~/mti881-projet2/send_discord.py \
