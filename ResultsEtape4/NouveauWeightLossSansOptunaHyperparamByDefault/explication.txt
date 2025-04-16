@@ -1,0 +1,43 @@
+lancement du script avec des corrections sur weighted loss 
+
+par rapport à étape 2 : 
+
+Performance globale :
+
+Sans weighted loss :
+
+F1: 0.665 (eval), 0.647 (predict)
+
+Précision: 0.652 (eval), 0.634 (predict)
+
+Rappel: 0.678 (eval), 0.662 (predict)
+
+Avec weighted loss :
+
+F1: 0.565 (eval), 0.567 (predict)
+
+Précision: 0.464 (eval), 0.466 (predict)
+
+Rappel: 0.721 (eval), 0.723 (predict)
+
+Comportement caractéristique :
+
+La version weighted augmente le rappel mais réduit significativement la précision
+
+La version standard offre un meilleur équilibre précision/rappel
+
+Analyse par entité :
+
+Pour certaines entités peu fréquentes (ex: T005, T007), la version weighted obtient parfois de meilleurs résultats
+
+Pour les entités fréquentes (ex: T038, T103), la version standard est clairement meilleure
+
+Problèmes identifiés :
+Calcul des poids :
+
+Vos poids de classe pourraient être trop extrêmes, pénalisant excessivement les classes majoritaires
+
+
+
+
+--> utiliser focal loss plutot 

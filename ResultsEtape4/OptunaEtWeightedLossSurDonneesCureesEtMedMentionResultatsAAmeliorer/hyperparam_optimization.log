@@ -1,0 +1,64 @@
+2025-04-15 03:21:35,608 - INFO - Début du trial 0 - dossier: ./checkpoints/trial_0_20250415_032135
+2025-04-15 03:21:35,608 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_0_20250415_032135 --learning_rate 2.9728161746992184e-05 --per_device_train_batch_size 16 --num_train_epochs 4 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 03:21:39,201 - ERROR - Erreur dans le trial 0
+2025-04-15 03:21:39,201 - ERROR - Code de sortie: 1
+2025-04-15 03:21:39,201 - ERROR - Sortie d'erreur:
+/mnt/home/av00680@ens.ad.etsmtl.ca/mti881-projet2/venv/lib/python3.12/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/srv/nfs/logti-hyper-c1/av00680@ens.ad.etsmtl.ca/mti881-projet2/etape4/train_medmention.py", line 68, in <module>
+    from loss import WeightedLossTrainer #loss pondérée
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'loss'
+
+2025-04-15 03:21:39,201 - ERROR - Erreur dans le trial 0: Échec de l'exécution
+Traceback (most recent call last):
+  File "/srv/nfs/logti-hyper-c1/av00680@ens.ad.etsmtl.ca/mti881-projet2/etape4/./hyperparam_optimization.py", line 72, in objective
+    raise RuntimeError("Échec de l'exécution")
+RuntimeError: Échec de l'exécution
+2025-04-15 03:40:18,095 - INFO - Début du trial 0 - dossier: ./checkpoints/trial_0_20250415_034018
+2025-04-15 03:40:18,095 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_0_20250415_034018 --learning_rate 2.876919822167694e-05 --per_device_train_batch_size 8 --num_train_epochs 4 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 03:49:01,613 - INFO - Trial 0 terminé - F1-score: 0.42994275140230154
+2025-04-15 03:49:01,614 - INFO - Début du trial 1 - dossier: ./checkpoints/trial_1_20250415_034901
+2025-04-15 03:49:01,614 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_1_20250415_034901 --learning_rate 2.84728905670842e-05 --per_device_train_batch_size 8 --num_train_epochs 5 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 03:59:30,593 - INFO - Trial 1 terminé - F1-score: 0.4501215832185862
+2025-04-15 03:59:30,594 - INFO - Début du trial 2 - dossier: ./checkpoints/trial_2_20250415_035930
+2025-04-15 03:59:30,594 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_2_20250415_035930 --learning_rate 4.5887894765679216e-05 --per_device_train_batch_size 16 --num_train_epochs 5 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 04:07:59,971 - INFO - Trial 2 terminé - F1-score: 0.4360137217280074
+2025-04-15 04:07:59,978 - INFO - Début du trial 3 - dossier: ./checkpoints/trial_3_20250415_040759
+2025-04-15 04:07:59,978 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_3_20250415_040759 --learning_rate 2.698275090410822e-05 --per_device_train_batch_size 32 --num_train_epochs 3 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 04:13:06,037 - INFO - Trial 3 terminé - F1-score: 0.3054871568906975
+2025-04-15 04:13:06,038 - INFO - Début du trial 4 - dossier: ./checkpoints/trial_4_20250415_041306
+2025-04-15 04:13:06,038 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_4_20250415_041306 --learning_rate 1.3867575722754815e-05 --per_device_train_batch_size 32 --num_train_epochs 3 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 04:18:08,969 - INFO - Trial 4 terminé - F1-score: 0.26176061929337036
+2025-04-15 04:18:08,970 - INFO - Début du trial 5 - dossier: ./checkpoints/trial_5_20250415_041808
+2025-04-15 04:18:08,970 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_5_20250415_041808 --learning_rate 1.0909137902985587e-05 --per_device_train_batch_size 32 --num_train_epochs 5 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 04:26:13,252 - INFO - Trial 5 terminé - F1-score: 0.29168251071057366
+2025-04-15 04:26:13,253 - INFO - Début du trial 6 - dossier: ./checkpoints/trial_6_20250415_042613
+2025-04-15 04:26:13,253 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_6_20250415_042613 --learning_rate 1.2769959018547122e-05 --per_device_train_batch_size 32 --num_train_epochs 4 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 04:32:42,643 - INFO - Trial 6 terminé - F1-score: 0.27633912735012417
+2025-04-15 04:32:42,645 - INFO - Début du trial 7 - dossier: ./checkpoints/trial_7_20250415_043242
+2025-04-15 04:32:42,645 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_7_20250415_043242 --learning_rate 2.9104192065843472e-05 --per_device_train_batch_size 8 --num_train_epochs 4 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 04:41:13,077 - INFO - Trial 7 terminé - F1-score: 0.4308190652475705
+2025-04-15 04:41:13,079 - INFO - Début du trial 8 - dossier: ./checkpoints/trial_8_20250415_044113
+2025-04-15 04:41:13,079 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_8_20250415_044113 --learning_rate 1.6628269360208906e-05 --per_device_train_batch_size 8 --num_train_epochs 4 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 04:49:44,125 - INFO - Trial 8 terminé - F1-score: 0.3827889867350351
+2025-04-15 04:49:44,126 - INFO - Début du trial 9 - dossier: ./checkpoints/trial_9_20250415_044944
+2025-04-15 04:49:44,126 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_9_20250415_044944 --learning_rate 1.7163944725758714e-05 --per_device_train_batch_size 8 --num_train_epochs 3 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 04:56:14,491 - INFO - Trial 9 terminé - F1-score: 0.3651504395784415
+2025-04-15 04:56:14,503 - INFO - Début du trial 10 - dossier: ./checkpoints/trial_10_20250415_045614
+2025-04-15 04:56:14,503 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_10_20250415_045614 --learning_rate 4.4540701349141534e-05 --per_device_train_batch_size 16 --num_train_epochs 5 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 05:04:44,134 - INFO - Trial 10 terminé - F1-score: 0.43693341442928724
+2025-04-15 05:04:44,140 - INFO - Début du trial 11 - dossier: ./checkpoints/trial_11_20250415_050444
+2025-04-15 05:04:44,140 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_11_20250415_050444 --learning_rate 4.876207698280659e-05 --per_device_train_batch_size 16 --num_train_epochs 5 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 05:13:14,947 - INFO - Trial 11 terminé - F1-score: 0.4410169689194705
+2025-04-15 05:13:14,953 - INFO - Début du trial 12 - dossier: ./checkpoints/trial_12_20250415_051314
+2025-04-15 05:13:14,953 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_12_20250415_051314 --learning_rate 3.678570697849784e-05 --per_device_train_batch_size 16 --num_train_epochs 5 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 05:21:45,244 - INFO - Trial 12 terminé - F1-score: 0.42003203294817526
+2025-04-15 05:21:45,253 - INFO - Début du trial 13 - dossier: ./checkpoints/trial_13_20250415_052145
+2025-04-15 05:21:45,253 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_13_20250415_052145 --learning_rate 2.2917278879788763e-05 --per_device_train_batch_size 16 --num_train_epochs 5 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 05:30:15,387 - INFO - Trial 13 terminé - F1-score: 0.38433033350979356
+2025-04-15 05:30:15,393 - INFO - Début du trial 14 - dossier: ./checkpoints/trial_14_20250415_053015
+2025-04-15 05:30:15,393 - INFO - Exécution de la commande: python train_medmention.py --output_dir ./checkpoints/trial_14_20250415_053015 --learning_rate 3.6280883256198824e-05 --per_device_train_batch_size 8 --num_train_epochs 5 --weight_decay 0.0 --model_name_or_path bert-base-uncased --dataset_name ibm-research/MedMentions-ZS --do_train --do_eval --do_predict --overwrite_output_dir
+2025-04-15 05:40:52,828 - INFO - Trial 14 terminé - F1-score: 0.46752241117431576
+2025-04-15 05:40:52,829 - INFO - Optimisation terminée. Meilleurs paramètres: {'learning_rate': 3.6280883256198824e-05, 'batch_size': 8, 'num_train_epochs': 5}
