@@ -81,6 +81,14 @@ Dans le code, vous pouvez observer précisément les parties qui ont été modif
 
 ## Etape 4 : Thème libre
 
--**utilisation optuna** : utiliser run_hyperparam_optimization.sh pour tester avec une loss pondérée en meme temps directement imbriquée dans le code. 
--**loss pondérée** : définie dans le fichier loss.py 
+Test de plusieurs loss pour chercher à améliorer le modèle. Utilisation d'optuna pour faire de la recherche de paramètres optimisée. 
+Dans le code, vous pouvez observer précisément les parties qui ont été modifiées, elles sont délimitées par "#!!!".
+
+-**utilisation optuna** : utiliser run_hyperparam_optimization.sh pour tester avec une loss pondérée en meme temps directement imbriquée dans le code. Le code hyperparam_optimization.py permet de paramétrer le lancement d'optuna. 
+
+-**loss pondérée** : définie dans le fichier loss.py. Code train_medmention.py modifié pour calculer les poids par classe. 
+
+-**focal loss** : définie dans focalLoss.py. Cette loss réduit l'influence des exemples faciles lors de l'entraînement pour mieux se concentrer sur les cas ambigus ou mal classés.
+
+-**Adaptive Class-Balanced Focal Loss** : définie dans balancedFocalLoss.py. Cette loss combine un rééquilibrage automatique des classes rares et se focalise sur les exemples difficiles pour optimiser l'apprentissage sur des données déséquilibrées.
 
