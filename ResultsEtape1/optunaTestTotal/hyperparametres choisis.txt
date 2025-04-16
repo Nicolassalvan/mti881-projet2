@@ -1,0 +1,13 @@
+les hyperparamètres choisis pour ce test optuna 
+database = uniquement medmention 
+
+
+
+hyperparams = {
+            "learning_rate": trial.suggest_float("learning_rate", 1e-5, 5e-5, log=True),
+            "per_device_train_batch_size": trial.suggest_categorical("batch_size", [8,16,32]),
+            "num_train_epochs": trial.suggest_int("num_train_epochs", 3, 5),
+            "weight_decay": 0.0,
+        }
+
+n_trials = 15

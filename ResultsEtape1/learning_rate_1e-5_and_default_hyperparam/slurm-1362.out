@@ -1,0 +1,442 @@
+Working directory: /srv/nfs/logti-hyper-c1/av00680@ens.ad.etsmtl.ca/projet2_phase1main
+Starting at Sun Apr 13 02:29:01 EDT 2025
+Running on logti-hyperbole.ens.ad.etsmtl.ca
+Current user: av00680@ens.ad.etsmtl.ca
+Directory ~ : projet2_phase0
+projet2_phase1
+projet2_phase1main
+Sun Apr 13 02:29:01 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.124.06             Driver Version: 570.124.06     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:01:00.0 Off |                  Off |
+| 50%   76C    P0            298W /  300W |   46292MiB /  49140MiB |     99%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               On  |   00000000:02:00.0 Off |                  Off |
+| 30%   29C    P8             17W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA RTX A6000               On  |   00000000:C1:00.0 Off |                  Off |
+| 30%   26C    P8             23W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA RTX A6000               On  |   00000000:C2:00.0 Off |                  Off |
+| 30%   27C    P8             19W /  300W |       2MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A          114926      C   python                                45868MiB |
++-----------------------------------------------------------------------------------------+
+starting...
+04/13/2025 02:29:06 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: True
+04/13/2025 02:29:06 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+average_tokens_across_devices=False,
+batch_eval_metrics=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=42,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=None,
+eval_strategy=IntervalStrategy.EPOCH,
+eval_use_gather_object=False,
+fp16=True,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=2,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=test-ner/runs/Apr13_02-29-05_logti-hyperbole.ens.ad.etsmtl.ca,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_kwargs={},
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=10.0,
+optim=OptimizerNames.ADAMW_TORCH,
+optim_args=None,
+optim_target_modules=None,
+output_dir=test-ner,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=test-ner,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=SaveStrategy.STEPS,
+save_total_limit=3,
+seed=42,
+skip_memory_metrics=True,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tp_size=0,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+04/13/2025 02:29:06 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+04/13/2025 02:29:06 - INFO - datasets.info - Loading Dataset info from HF_HOME=/mnt/home/av00680@ens.ad.etsmtl.ca/projet2_phase1main/hfcache/datasets/ibm-research___med_mentions-zs/default/0.0.0/f722ac14668e0c7f21055a20b2b4392e7b7b85b2
+04/13/2025 02:29:06 - INFO - datasets.builder - Found cached dataset med_mentions-zs (/srv/nfs/logti-hyper-c1/av00680@ens.ad.etsmtl.ca/projet2_phase1main/HF_HOME=/mnt/home/av00680@ens.ad.etsmtl.ca/projet2_phase1main/hfcache/datasets/ibm-research___med_mentions-zs/default/0.0.0/f722ac14668e0c7f21055a20b2b4392e7b7b85b2)
+04/13/2025 02:29:06 - INFO - datasets.info - Loading Dataset info from /srv/nfs/logti-hyper-c1/av00680@ens.ad.etsmtl.ca/projet2_phase1main/HF_HOME=/mnt/home/av00680@ens.ad.etsmtl.ca/projet2_phase1main/hfcache/datasets/ibm-research___med_mentions-zs/default/0.0.0/f722ac14668e0c7f21055a20b2b4392e7b7b85b2
+Extraction des NER-Tags...
+Fait!
+Création du mapping TUI vers indice...
+Fait!
+Shuffle des indices avant le split...
+Fait!
+Création du premier split (train VS reste)...
+Fait!
+Création du deuxième split (val VS test)...
+Fait!
+Conversion des indices...
+Fait! 
+Tous les exemples sont dans un split! et sans overlaps.
+Séparation en Train - Validation - Test terminée!
+04/13/2025 02:29:20 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /srv/nfs/logti-hyper-c1/av00680@ens.ad.etsmtl.ca/projet2_phase1main/HF_HOME=/mnt/home/av00680@ens.ad.etsmtl.ca/projet2_phase1main/hfcache/datasets/ibm-research___med_mentions-zs/default/0.0.0/f722ac14668e0c7f21055a20b2b4392e7b7b85b2/cache-a41ec75bd25c1672.arrow
+04/13/2025 02:29:20 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /srv/nfs/logti-hyper-c1/av00680@ens.ad.etsmtl.ca/projet2_phase1main/HF_HOME=/mnt/home/av00680@ens.ad.etsmtl.ca/projet2_phase1main/hfcache/datasets/ibm-research___med_mentions-zs/default/0.0.0/f722ac14668e0c7f21055a20b2b4392e7b7b85b2/cache-afba103970b5e9d9.arrow
+04/13/2025 02:29:20 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /srv/nfs/logti-hyper-c1/av00680@ens.ad.etsmtl.ca/projet2_phase1main/HF_HOME=/mnt/home/av00680@ens.ad.etsmtl.ca/projet2_phase1main/hfcache/datasets/ibm-research___med_mentions-zs/default/0.0.0/f722ac14668e0c7f21055a20b2b4392e7b7b85b2/cache-f6b1c090184f59b3.arrow
+{'loss': 0.7214, 'grad_norm': 2.743635416030884, 'learning_rate': 4.8288659793814435e-05, 'epoch': 0.34}
+{'loss': 0.5327, 'grad_norm': 1.8492240905761719, 'learning_rate': 4.657044673539519e-05, 'epoch': 0.69}
+Computing metrics... # DEBUG
+{'eval_loss': 0.4481896758079529, 'eval_T005_precision': 0.0, 'eval_T005_recall': 0.0, 'eval_T005_f1': 0.0, 'eval_T005_number': 25, 'eval_T007_precision': 0.0967741935483871, 'eval_T007_recall': 0.06666666666666667, 'eval_T007_f1': 0.07894736842105263, 'eval_T007_number': 45, 'eval_T017_precision': 0.5197415649676956, 'eval_T017_recall': 0.5871857258718572, 'eval_T017_f1': 0.5514089870525514, 'eval_T017_number': 1233, 'eval_T022_precision': 0.0, 'eval_T022_recall': 0.0, 'eval_T022_f1': 0.0, 'eval_T022_number': 9, 'eval_T031_precision': 0.0, 'eval_T031_recall': 0.0, 'eval_T031_f1': 0.0, 'eval_T031_number': 22, 'eval_T033_precision': 0.4208826695371367, 'eval_T033_recall': 0.39455095862764883, 'eval_T033_f1': 0.4072916666666666, 'eval_T033_number': 991, 'eval_T037_precision': 0.32558139534883723, 'eval_T037_recall': 0.3181818181818182, 'eval_T037_f1': 0.3218390804597701, 'eval_T037_number': 44, 'eval_T038_precision': 0.6398182569186287, 'eval_T038_recall': 0.6031931464174455, 'eval_T038_f1': 0.6209661254760473, 'eval_T038_number': 2568, 'eval_T058_precision': 0.517948717948718, 'eval_T058_recall': 0.543375924680565, 'eval_T058_f1': 0.5303577289136856, 'eval_T058_number': 1487, 'eval_T062_precision': 0.45113788487282463, 'eval_T062_recall': 0.6105072463768116, 'eval_T062_f1': 0.5188606620477291, 'eval_T062_number': 552, 'eval_T074_precision': 0.3902439024390244, 'eval_T074_recall': 0.2782608695652174, 'eval_T074_f1': 0.3248730964467005, 'eval_T074_number': 115, 'eval_T082_precision': 0.48137931034482756, 'eval_T082_recall': 0.47035040431266845, 'eval_T082_f1': 0.4758009543285616, 'eval_T082_number': 742, 'eval_T091_precision': 0.0, 'eval_T091_recall': 0.0, 'eval_T091_f1': 0.0, 'eval_T091_number': 20, 'eval_T092_precision': 0.0, 'eval_T092_recall': 0.0, 'eval_T092_f1': 0.0, 'eval_T092_number': 37, 'eval_T097_precision': 0.0, 'eval_T097_recall': 0.0, 'eval_T097_f1': 0.0, 'eval_T097_number': 15, 'eval_T098_precision': 0.6037735849056604, 'eval_T098_recall': 0.7293447293447294, 'eval_T098_f1': 0.6606451612903226, 'eval_T098_number': 351, 'eval_T103_precision': 0.6111538461538462, 'eval_T103_recall': 0.7265660722450846, 'eval_T103_f1': 0.6638813453102151, 'eval_T103_number': 2187, 'eval_T168_precision': 0.0, 'eval_T168_recall': 0.0, 'eval_T168_f1': 0.0, 'eval_T168_number': 28, 'eval_T170_precision': 0.4979757085020243, 'eval_T170_recall': 0.411371237458194, 'eval_T170_f1': 0.45054945054945056, 'eval_T170_number': 598, 'eval_T201_precision': 0.0, 'eval_T201_recall': 0.0, 'eval_T201_f1': 0.0, 'eval_T201_number': 40, 'eval_T204_precision': 0.6384479717813051, 'eval_T204_recall': 0.7573221757322176, 'eval_T204_f1': 0.692822966507177, 'eval_T204_number': 478, 'eval_overall_precision': 0.5537540533798953, 'eval_overall_recall': 0.5747820833692932, 'eval_overall_f1': 0.5640721605827052, 'eval_overall_accuracy': 0.857386171568245, 'eval_runtime': 3.3156, 'eval_samples_per_second': 890.943, 'eval_steps_per_second': 111.594, 'epoch': 1.0}
+{'loss': 0.4762, 'grad_norm': 2.2976934909820557, 'learning_rate': 4.4852233676975946e-05, 'epoch': 1.03}
+{'loss': 0.3839, 'grad_norm': 2.9416637420654297, 'learning_rate': 4.3134020618556705e-05, 'epoch': 1.37}
+{'loss': 0.3735, 'grad_norm': 1.9859358072280884, 'learning_rate': 4.141580756013746e-05, 'epoch': 1.72}
+Computing metrics... # DEBUG
+{'eval_loss': 0.407112181186676, 'eval_T005_precision': 0.4583333333333333, 'eval_T005_recall': 0.44, 'eval_T005_f1': 0.4489795918367347, 'eval_T005_number': 25, 'eval_T007_precision': 0.13043478260869565, 'eval_T007_recall': 0.06666666666666667, 'eval_T007_f1': 0.08823529411764705, 'eval_T007_number': 45, 'eval_T017_precision': 0.5801144492131617, 'eval_T017_recall': 0.6577453365774534, 'eval_T017_f1': 0.6164956290383885, 'eval_T017_number': 1233, 'eval_T022_precision': 0.0, 'eval_T022_recall': 0.0, 'eval_T022_f1': 0.0, 'eval_T022_number': 9, 'eval_T031_precision': 0.0, 'eval_T031_recall': 0.0, 'eval_T031_f1': 0.0, 'eval_T031_number': 22, 'eval_T033_precision': 0.4981481481481482, 'eval_T033_recall': 0.2714429868819374, 'eval_T033_f1': 0.3514043109079033, 'eval_T033_number': 991, 'eval_T037_precision': 0.323943661971831, 'eval_T037_recall': 0.5227272727272727, 'eval_T037_f1': 0.4, 'eval_T037_number': 44, 'eval_T038_precision': 0.6182776801405976, 'eval_T038_recall': 0.6849688473520249, 'eval_T038_f1': 0.649916866802143, 'eval_T038_number': 2568, 'eval_T058_precision': 0.6049192928516526, 'eval_T058_recall': 0.5292535305985205, 'eval_T058_f1': 0.5645624103299857, 'eval_T058_number': 1487, 'eval_T062_precision': 0.5022900763358779, 'eval_T062_recall': 0.5960144927536232, 'eval_T062_f1': 0.5451532725766363, 'eval_T062_number': 552, 'eval_T074_precision': 0.4778761061946903, 'eval_T074_recall': 0.46956521739130436, 'eval_T074_f1': 0.4736842105263158, 'eval_T074_number': 115, 'eval_T082_precision': 0.5344070278184481, 'eval_T082_recall': 0.4919137466307278, 'eval_T082_f1': 0.512280701754386, 'eval_T082_number': 742, 'eval_T091_precision': 0.0, 'eval_T091_recall': 0.0, 'eval_T091_f1': 0.0, 'eval_T091_number': 20, 'eval_T092_precision': 0.08771929824561403, 'eval_T092_recall': 0.13513513513513514, 'eval_T092_f1': 0.10638297872340426, 'eval_T092_number': 37, 'eval_T097_precision': 0.07692307692307693, 'eval_T097_recall': 0.06666666666666667, 'eval_T097_f1': 0.07142857142857144, 'eval_T097_number': 15, 'eval_T098_precision': 0.6997167138810199, 'eval_T098_recall': 0.7037037037037037, 'eval_T098_f1': 0.7017045454545455, 'eval_T098_number': 351, 'eval_T103_precision': 0.6614817846909538, 'eval_T103_recall': 0.7389117512574302, 'eval_T103_f1': 0.6980561555075593, 'eval_T103_number': 2187, 'eval_T168_precision': 0.4, 'eval_T168_recall': 0.07142857142857142, 'eval_T168_f1': 0.12121212121212122, 'eval_T168_number': 28, 'eval_T170_precision': 0.5048231511254019, 'eval_T170_recall': 0.5250836120401338, 'eval_T170_f1': 0.5147540983606557, 'eval_T170_number': 598, 'eval_T201_precision': 0.3333333333333333, 'eval_T201_recall': 0.025, 'eval_T201_f1': 0.046511627906976744, 'eval_T201_number': 40, 'eval_T204_precision': 0.6495726495726496, 'eval_T204_recall': 0.7949790794979079, 'eval_T204_f1': 0.7149576669802447, 'eval_T204_number': 478, 'eval_overall_precision': 0.5944955691888207, 'eval_overall_recall': 0.6021403296798136, 'eval_overall_f1': 0.5982935299918536, 'eval_overall_accuracy': 0.8691525600020803, 'eval_runtime': 3.3247, 'eval_samples_per_second': 888.504, 'eval_steps_per_second': 111.289, 'epoch': 2.0}
+{'loss': 0.3492, 'grad_norm': 2.056767702102661, 'learning_rate': 3.9697594501718216e-05, 'epoch': 2.06}
+{'loss': 0.2701, 'grad_norm': 2.5755538940429688, 'learning_rate': 3.7979381443298975e-05, 'epoch': 2.41}
+{'loss': 0.2679, 'grad_norm': 2.3527746200561523, 'learning_rate': 3.6261168384879727e-05, 'epoch': 2.75}
+Computing metrics... # DEBUG
+{'eval_loss': 0.4086143374443054, 'eval_T005_precision': 0.27631578947368424, 'eval_T005_recall': 0.84, 'eval_T005_f1': 0.4158415841584159, 'eval_T005_number': 25, 'eval_T007_precision': 0.273972602739726, 'eval_T007_recall': 0.4444444444444444, 'eval_T007_f1': 0.3389830508474576, 'eval_T007_number': 45, 'eval_T017_precision': 0.5898916967509025, 'eval_T017_recall': 0.6626115166261152, 'eval_T017_f1': 0.6241405653170359, 'eval_T017_number': 1233, 'eval_T022_precision': 0.0, 'eval_T022_recall': 0.0, 'eval_T022_f1': 0.0, 'eval_T022_number': 9, 'eval_T031_precision': 1.0, 'eval_T031_recall': 0.045454545454545456, 'eval_T031_f1': 0.08695652173913045, 'eval_T031_number': 22, 'eval_T033_precision': 0.47261009667024706, 'eval_T033_recall': 0.4439959636730575, 'eval_T033_f1': 0.45785639958376684, 'eval_T033_number': 991, 'eval_T037_precision': 0.46153846153846156, 'eval_T037_recall': 0.4090909090909091, 'eval_T037_f1': 0.4337349397590362, 'eval_T037_number': 44, 'eval_T038_precision': 0.6725559481743227, 'eval_T038_recall': 0.6670560747663551, 'eval_T038_f1': 0.6697947214076246, 'eval_T038_number': 2568, 'eval_T058_precision': 0.5708884688090737, 'eval_T058_recall': 0.609280430396772, 'eval_T058_f1': 0.5894599869876382, 'eval_T058_number': 1487, 'eval_T062_precision': 0.5054263565891473, 'eval_T062_recall': 0.5905797101449275, 'eval_T062_f1': 0.5446950710108605, 'eval_T062_number': 552, 'eval_T074_precision': 0.5147058823529411, 'eval_T074_recall': 0.6086956521739131, 'eval_T074_f1': 0.5577689243027889, 'eval_T074_number': 115, 'eval_T082_precision': 0.5184243964421855, 'eval_T082_recall': 0.5498652291105122, 'eval_T082_f1': 0.5336821451929366, 'eval_T082_number': 742, 'eval_T091_precision': 0.5, 'eval_T091_recall': 0.2, 'eval_T091_f1': 0.28571428571428575, 'eval_T091_number': 20, 'eval_T092_precision': 0.1559633027522936, 'eval_T092_recall': 0.4594594594594595, 'eval_T092_f1': 0.2328767123287671, 'eval_T092_number': 37, 'eval_T097_precision': 0.07142857142857142, 'eval_T097_recall': 0.13333333333333333, 'eval_T097_f1': 0.09302325581395349, 'eval_T097_number': 15, 'eval_T098_precision': 0.684931506849315, 'eval_T098_recall': 0.7122507122507122, 'eval_T098_f1': 0.6983240223463686, 'eval_T098_number': 351, 'eval_T103_precision': 0.6874466268146883, 'eval_T103_recall': 0.7361682670324645, 'eval_T103_f1': 0.7109737248840803, 'eval_T103_number': 2187, 'eval_T168_precision': 0.6363636363636364, 'eval_T168_recall': 0.25, 'eval_T168_f1': 0.358974358974359, 'eval_T168_number': 28, 'eval_T170_precision': 0.5028985507246376, 'eval_T170_recall': 0.580267558528428, 'eval_T170_f1': 0.5388198757763975, 'eval_T170_number': 598, 'eval_T201_precision': 0.6666666666666666, 'eval_T201_recall': 0.05, 'eval_T201_f1': 0.09302325581395349, 'eval_T201_number': 40, 'eval_T204_precision': 0.7470355731225297, 'eval_T204_recall': 0.7907949790794979, 'eval_T204_f1': 0.7682926829268293, 'eval_T204_number': 478, 'eval_overall_precision': 0.5996413725650013, 'eval_overall_recall': 0.6349357038059895, 'eval_overall_f1': 0.6167840375586855, 'eval_overall_accuracy': 0.8737811061705282, 'eval_runtime': 3.3278, 'eval_samples_per_second': 887.673, 'eval_steps_per_second': 111.185, 'epoch': 3.0}
+{'loss': 0.2433, 'grad_norm': 3.1234710216522217, 'learning_rate': 3.454639175257732e-05, 'epoch': 3.09}
+{'loss': 0.1846, 'grad_norm': 2.0486888885498047, 'learning_rate': 3.282817869415808e-05, 'epoch': 3.44}
+{'loss': 0.1854, 'grad_norm': 2.458489418029785, 'learning_rate': 3.110996563573883e-05, 'epoch': 3.78}
+Computing metrics... # DEBUG
+{'eval_loss': 0.438632607460022, 'eval_T005_precision': 0.4864864864864865, 'eval_T005_recall': 0.72, 'eval_T005_f1': 0.5806451612903226, 'eval_T005_number': 25, 'eval_T007_precision': 0.3548387096774194, 'eval_T007_recall': 0.24444444444444444, 'eval_T007_f1': 0.2894736842105263, 'eval_T007_number': 45, 'eval_T017_precision': 0.6274961597542242, 'eval_T017_recall': 0.6626115166261152, 'eval_T017_f1': 0.6445759368836291, 'eval_T017_number': 1233, 'eval_T022_precision': 0.0, 'eval_T022_recall': 0.0, 'eval_T022_f1': 0.0, 'eval_T022_number': 9, 'eval_T031_precision': 0.6363636363636364, 'eval_T031_recall': 0.3181818181818182, 'eval_T031_f1': 0.4242424242424242, 'eval_T031_number': 22, 'eval_T033_precision': 0.44209636517328826, 'eval_T033_recall': 0.5277497477295661, 'eval_T033_f1': 0.4811407543698252, 'eval_T033_number': 991, 'eval_T037_precision': 0.46938775510204084, 'eval_T037_recall': 0.5227272727272727, 'eval_T037_f1': 0.49462365591397844, 'eval_T037_number': 44, 'eval_T038_precision': 0.6551226551226551, 'eval_T038_recall': 0.7071651090342679, 'eval_T038_f1': 0.6801498127340824, 'eval_T038_number': 2568, 'eval_T058_precision': 0.5504807692307693, 'eval_T058_recall': 0.6160053799596503, 'eval_T058_f1': 0.5814027292922882, 'eval_T058_number': 1487, 'eval_T062_precision': 0.5130434782608696, 'eval_T062_recall': 0.6413043478260869, 'eval_T062_f1': 0.5700483091787439, 'eval_T062_number': 552, 'eval_T074_precision': 0.5572519083969466, 'eval_T074_recall': 0.6347826086956522, 'eval_T074_f1': 0.5934959349593496, 'eval_T074_number': 115, 'eval_T082_precision': 0.5027746947835738, 'eval_T082_recall': 0.610512129380054, 'eval_T082_f1': 0.5514303104077907, 'eval_T082_number': 742, 'eval_T091_precision': 0.4444444444444444, 'eval_T091_recall': 0.2, 'eval_T091_f1': 0.2758620689655173, 'eval_T091_number': 20, 'eval_T092_precision': 0.3333333333333333, 'eval_T092_recall': 0.10810810810810811, 'eval_T092_f1': 0.163265306122449, 'eval_T092_number': 37, 'eval_T097_precision': 0.1, 'eval_T097_recall': 0.13333333333333333, 'eval_T097_f1': 0.1142857142857143, 'eval_T097_number': 15, 'eval_T098_precision': 0.7122507122507122, 'eval_T098_recall': 0.7122507122507122, 'eval_T098_f1': 0.7122507122507122, 'eval_T098_number': 351, 'eval_T103_precision': 0.7142857142857143, 'eval_T103_recall': 0.7315957933241883, 'eval_T103_f1': 0.7228371357578497, 'eval_T103_number': 2187, 'eval_T168_precision': 0.5769230769230769, 'eval_T168_recall': 0.5357142857142857, 'eval_T168_f1': 0.5555555555555555, 'eval_T168_number': 28, 'eval_T170_precision': 0.5282442748091603, 'eval_T170_recall': 0.5785953177257525, 'eval_T170_f1': 0.5522745411013567, 'eval_T170_number': 598, 'eval_T201_precision': 0.42857142857142855, 'eval_T201_recall': 0.15, 'eval_T201_f1': 0.2222222222222222, 'eval_T201_number': 40, 'eval_T204_precision': 0.719626168224299, 'eval_T204_recall': 0.805439330543933, 'eval_T204_f1': 0.7601184600197433, 'eval_T204_number': 478, 'eval_overall_precision': 0.6034196152932795, 'eval_overall_recall': 0.6578924656943126, 'eval_overall_f1': 0.6294797687861272, 'eval_overall_accuracy': 0.8771355019892347, 'eval_runtime': 3.4014, 'eval_samples_per_second': 868.469, 'eval_steps_per_second': 108.779, 'epoch': 4.0}
+{'loss': 0.1592, 'grad_norm': 2.558511734008789, 'learning_rate': 2.9391752577319585e-05, 'epoch': 4.12}
+{'loss': 0.1233, 'grad_norm': 3.0135607719421387, 'learning_rate': 2.7676975945017188e-05, 'epoch': 4.47}
+{'loss': 0.1273, 'grad_norm': 2.718806743621826, 'learning_rate': 2.5958762886597936e-05, 'epoch': 4.81}
+Computing metrics... # DEBUG
+{'eval_loss': 0.4810166656970978, 'eval_T005_precision': 0.6, 'eval_T005_recall': 0.6, 'eval_T005_f1': 0.6, 'eval_T005_number': 25, 'eval_T007_precision': 0.7333333333333333, 'eval_T007_recall': 0.4888888888888889, 'eval_T007_f1': 0.5866666666666667, 'eval_T007_number': 45, 'eval_T017_precision': 0.6503215434083601, 'eval_T017_recall': 0.6561232765612328, 'eval_T017_f1': 0.6532095276544206, 'eval_T017_number': 1233, 'eval_T022_precision': 0.5, 'eval_T022_recall': 0.1111111111111111, 'eval_T022_f1': 0.1818181818181818, 'eval_T022_number': 9, 'eval_T031_precision': 1.0, 'eval_T031_recall': 0.2727272727272727, 'eval_T031_f1': 0.42857142857142855, 'eval_T031_number': 22, 'eval_T033_precision': 0.5178378378378379, 'eval_T033_recall': 0.48335015136226034, 'eval_T033_f1': 0.5000000000000001, 'eval_T033_number': 991, 'eval_T037_precision': 0.5348837209302325, 'eval_T037_recall': 0.5227272727272727, 'eval_T037_f1': 0.5287356321839081, 'eval_T037_number': 44, 'eval_T038_precision': 0.6887009992313605, 'eval_T038_recall': 0.6978193146417445, 'eval_T038_f1': 0.6932301740812379, 'eval_T038_number': 2568, 'eval_T058_precision': 0.5867014341590613, 'eval_T058_recall': 0.605245460659045, 'eval_T058_f1': 0.5958291956305858, 'eval_T058_number': 1487, 'eval_T062_precision': 0.5276532137518685, 'eval_T062_recall': 0.6394927536231884, 'eval_T062_f1': 0.5782145782145782, 'eval_T062_number': 552, 'eval_T074_precision': 0.591304347826087, 'eval_T074_recall': 0.591304347826087, 'eval_T074_f1': 0.591304347826087, 'eval_T074_number': 115, 'eval_T082_precision': 0.5567282321899736, 'eval_T082_recall': 0.568733153638814, 'eval_T082_f1': 0.5626666666666666, 'eval_T082_number': 742, 'eval_T091_precision': 0.3, 'eval_T091_recall': 0.3, 'eval_T091_f1': 0.3, 'eval_T091_number': 20, 'eval_T092_precision': 0.15789473684210525, 'eval_T092_recall': 0.16216216216216217, 'eval_T092_f1': 0.16, 'eval_T092_number': 37, 'eval_T097_precision': 0.04, 'eval_T097_recall': 0.06666666666666667, 'eval_T097_f1': 0.05, 'eval_T097_number': 15, 'eval_T098_precision': 0.6416464891041163, 'eval_T098_recall': 0.7549857549857549, 'eval_T098_f1': 0.6937172774869109, 'eval_T098_number': 351, 'eval_T103_precision': 0.7098022355975925, 'eval_T103_recall': 0.7549154092363969, 'eval_T103_f1': 0.7316640815422114, 'eval_T103_number': 2187, 'eval_T168_precision': 0.5652173913043478, 'eval_T168_recall': 0.4642857142857143, 'eval_T168_f1': 0.5098039215686274, 'eval_T168_number': 28, 'eval_T170_precision': 0.5160771704180064, 'eval_T170_recall': 0.5367892976588629, 'eval_T170_f1': 0.5262295081967213, 'eval_T170_number': 598, 'eval_T201_precision': 0.47368421052631576, 'eval_T201_recall': 0.225, 'eval_T201_f1': 0.30508474576271183, 'eval_T201_number': 40, 'eval_T204_precision': 0.72, 'eval_T204_recall': 0.7907949790794979, 'eval_T204_f1': 0.7537387836490529, 'eval_T204_number': 478, 'eval_overall_precision': 0.6302240053493815, 'eval_overall_recall': 0.6507292655562268, 'eval_overall_f1': 0.6403125132690756, 'eval_overall_accuracy': 0.8822191018540188, 'eval_runtime': 3.3143, 'eval_samples_per_second': 891.292, 'eval_steps_per_second': 111.638, 'epoch': 5.0}
+{'loss': 0.1052, 'grad_norm': 3.542588233947754, 'learning_rate': 2.4240549828178695e-05, 'epoch': 5.15}
+{'loss': 0.0871, 'grad_norm': 2.2707908153533936, 'learning_rate': 2.252233676975945e-05, 'epoch': 5.5}
+{'loss': 0.0859, 'grad_norm': 1.635877251625061, 'learning_rate': 2.0804123711340206e-05, 'epoch': 5.84}
+Computing metrics... # DEBUG
+{'eval_loss': 0.5217524766921997, 'eval_T005_precision': 0.8333333333333334, 'eval_T005_recall': 0.4, 'eval_T005_f1': 0.5405405405405406, 'eval_T005_number': 25, 'eval_T007_precision': 0.6, 'eval_T007_recall': 0.5333333333333333, 'eval_T007_f1': 0.5647058823529412, 'eval_T007_number': 45, 'eval_T017_precision': 0.6398763523956723, 'eval_T017_recall': 0.6715328467153284, 'eval_T017_f1': 0.6553225168183616, 'eval_T017_number': 1233, 'eval_T022_precision': 0.375, 'eval_T022_recall': 0.3333333333333333, 'eval_T022_f1': 0.35294117647058826, 'eval_T022_number': 9, 'eval_T031_precision': 0.55, 'eval_T031_recall': 0.5, 'eval_T031_f1': 0.5238095238095238, 'eval_T031_number': 22, 'eval_T033_precision': 0.47557603686635946, 'eval_T033_recall': 0.520686175580222, 'eval_T033_f1': 0.4971098265895954, 'eval_T033_number': 991, 'eval_T037_precision': 0.5, 'eval_T037_recall': 0.45454545454545453, 'eval_T037_f1': 0.47619047619047616, 'eval_T037_number': 44, 'eval_T038_precision': 0.676602086438152, 'eval_T038_recall': 0.7071651090342679, 'eval_T038_f1': 0.6915460776846916, 'eval_T038_number': 2568, 'eval_T058_precision': 0.572827417380661, 'eval_T058_recall': 0.6294552790854069, 'eval_T058_f1': 0.5998077539250242, 'eval_T058_number': 1487, 'eval_T062_precision': 0.5255474452554745, 'eval_T062_recall': 0.6521739130434783, 'eval_T062_f1': 0.582053354890865, 'eval_T062_number': 552, 'eval_T074_precision': 0.5772357723577236, 'eval_T074_recall': 0.6173913043478261, 'eval_T074_f1': 0.5966386554621849, 'eval_T074_number': 115, 'eval_T082_precision': 0.5523690773067331, 'eval_T082_recall': 0.5970350404312669, 'eval_T082_f1': 0.5738341968911918, 'eval_T082_number': 742, 'eval_T091_precision': 0.4117647058823529, 'eval_T091_recall': 0.35, 'eval_T091_f1': 0.37837837837837834, 'eval_T091_number': 20, 'eval_T092_precision': 0.1935483870967742, 'eval_T092_recall': 0.16216216216216217, 'eval_T092_f1': 0.1764705882352941, 'eval_T092_number': 37, 'eval_T097_precision': 0.16666666666666666, 'eval_T097_recall': 0.13333333333333333, 'eval_T097_f1': 0.14814814814814814, 'eval_T097_number': 15, 'eval_T098_precision': 0.71900826446281, 'eval_T098_recall': 0.7435897435897436, 'eval_T098_f1': 0.7310924369747899, 'eval_T098_number': 351, 'eval_T103_precision': 0.7023157894736842, 'eval_T103_recall': 0.7626886145404664, 'eval_T103_f1': 0.731258220078913, 'eval_T103_number': 2187, 'eval_T168_precision': 0.75, 'eval_T168_recall': 0.32142857142857145, 'eval_T168_f1': 0.45000000000000007, 'eval_T168_number': 28, 'eval_T170_precision': 0.5608214849921012, 'eval_T170_recall': 0.5936454849498328, 'eval_T170_f1': 0.5767668562144598, 'eval_T170_number': 598, 'eval_T201_precision': 0.5, 'eval_T201_recall': 0.325, 'eval_T201_f1': 0.393939393939394, 'eval_T201_number': 40, 'eval_T204_precision': 0.7337164750957854, 'eval_T204_recall': 0.801255230125523, 'eval_T204_f1': 0.766, 'eval_T204_number': 478, 'eval_overall_precision': 0.6234498308906427, 'eval_overall_recall': 0.668162596012773, 'eval_overall_f1': 0.6450322849406375, 'eval_overall_accuracy': 0.8817380450893205, 'eval_runtime': 3.473, 'eval_samples_per_second': 850.568, 'eval_steps_per_second': 106.537, 'epoch': 6.0}
+{'loss': 0.0734, 'grad_norm': 1.7500556707382202, 'learning_rate': 1.9085910652920962e-05, 'epoch': 6.19}
+{'loss': 0.0593, 'grad_norm': 2.5490078926086426, 'learning_rate': 1.736769759450172e-05, 'epoch': 6.53}
+{'loss': 0.059, 'grad_norm': 1.7386316061019897, 'learning_rate': 1.5649484536082476e-05, 'epoch': 6.87}
+Computing metrics... # DEBUG
+{'eval_loss': 0.5800359845161438, 'eval_T005_precision': 0.5555555555555556, 'eval_T005_recall': 0.4, 'eval_T005_f1': 0.46511627906976744, 'eval_T005_number': 25, 'eval_T007_precision': 0.6111111111111112, 'eval_T007_recall': 0.4888888888888889, 'eval_T007_f1': 0.5432098765432098, 'eval_T007_number': 45, 'eval_T017_precision': 0.6523772408417771, 'eval_T017_recall': 0.6788321167883211, 'eval_T017_f1': 0.6653418124006358, 'eval_T017_number': 1233, 'eval_T022_precision': 0.3333333333333333, 'eval_T022_recall': 0.3333333333333333, 'eval_T022_f1': 0.3333333333333333, 'eval_T022_number': 9, 'eval_T031_precision': 0.5555555555555556, 'eval_T031_recall': 0.45454545454545453, 'eval_T031_f1': 0.5, 'eval_T031_number': 22, 'eval_T033_precision': 0.5095669687814703, 'eval_T033_recall': 0.5105953582240161, 'eval_T033_f1': 0.5100806451612903, 'eval_T033_number': 991, 'eval_T037_precision': 0.6875, 'eval_T037_recall': 0.5, 'eval_T037_f1': 0.5789473684210527, 'eval_T037_number': 44, 'eval_T038_precision': 0.6906392694063926, 'eval_T038_recall': 0.7067757009345794, 'eval_T038_f1': 0.6986143187066974, 'eval_T038_number': 2568, 'eval_T058_precision': 0.5784014643075046, 'eval_T058_recall': 0.6375252185608608, 'eval_T058_f1': 0.6065259117082532, 'eval_T058_number': 1487, 'eval_T062_precision': 0.5353383458646617, 'eval_T062_recall': 0.644927536231884, 'eval_T062_f1': 0.5850451930977814, 'eval_T062_number': 552, 'eval_T074_precision': 0.5645161290322581, 'eval_T074_recall': 0.6086956521739131, 'eval_T074_f1': 0.5857740585774059, 'eval_T074_number': 115, 'eval_T082_precision': 0.6156202143950995, 'eval_T082_recall': 0.5417789757412399, 'eval_T082_f1': 0.5763440860215053, 'eval_T082_number': 742, 'eval_T091_precision': 0.3684210526315789, 'eval_T091_recall': 0.35, 'eval_T091_f1': 0.358974358974359, 'eval_T091_number': 20, 'eval_T092_precision': 0.18604651162790697, 'eval_T092_recall': 0.21621621621621623, 'eval_T092_f1': 0.2, 'eval_T092_number': 37, 'eval_T097_precision': 0.17647058823529413, 'eval_T097_recall': 0.2, 'eval_T097_f1': 0.18750000000000003, 'eval_T097_number': 15, 'eval_T098_precision': 0.7391304347826086, 'eval_T098_recall': 0.7264957264957265, 'eval_T098_f1': 0.7327586206896552, 'eval_T098_number': 351, 'eval_T103_precision': 0.7073170731707317, 'eval_T103_recall': 0.7690900777320531, 'eval_T103_f1': 0.7369112814895947, 'eval_T103_number': 2187, 'eval_T168_precision': 0.68, 'eval_T168_recall': 0.6071428571428571, 'eval_T168_f1': 0.6415094339622641, 'eval_T168_number': 28, 'eval_T170_precision': 0.5542949756888168, 'eval_T170_recall': 0.5719063545150501, 'eval_T170_f1': 0.5629629629629629, 'eval_T170_number': 598, 'eval_T201_precision': 0.46153846153846156, 'eval_T201_recall': 0.3, 'eval_T201_f1': 0.3636363636363637, 'eval_T201_number': 40, 'eval_T204_precision': 0.7474541751527495, 'eval_T204_recall': 0.7677824267782427, 'eval_T204_f1': 0.7574819401444789, 'eval_T204_number': 478, 'eval_overall_precision': 0.6380296873704288, 'eval_overall_recall': 0.6640200224389402, 'eval_overall_f1': 0.6507654571597734, 'eval_overall_accuracy': 0.8836232675455704, 'eval_runtime': 3.4, 'eval_samples_per_second': 868.828, 'eval_steps_per_second': 108.824, 'epoch': 7.0}
+{'loss': 0.0465, 'grad_norm': 1.3258931636810303, 'learning_rate': 1.393470790378007e-05, 'epoch': 7.22}
+{'loss': 0.0437, 'grad_norm': 1.698717713356018, 'learning_rate': 1.2216494845360826e-05, 'epoch': 7.56}
+{'loss': 0.0422, 'grad_norm': 4.796689510345459, 'learning_rate': 1.0498281786941581e-05, 'epoch': 7.9}
+Computing metrics... # DEBUG
+{'eval_loss': 0.6200519800186157, 'eval_T005_precision': 0.5, 'eval_T005_recall': 0.56, 'eval_T005_f1': 0.5283018867924528, 'eval_T005_number': 25, 'eval_T007_precision': 0.6341463414634146, 'eval_T007_recall': 0.5777777777777777, 'eval_T007_f1': 0.6046511627906976, 'eval_T007_number': 45, 'eval_T017_precision': 0.648689138576779, 'eval_T017_recall': 0.7023519870235199, 'eval_T017_f1': 0.674454828660436, 'eval_T017_number': 1233, 'eval_T022_precision': 0.42857142857142855, 'eval_T022_recall': 0.3333333333333333, 'eval_T022_f1': 0.375, 'eval_T022_number': 9, 'eval_T031_precision': 0.5625, 'eval_T031_recall': 0.4090909090909091, 'eval_T031_f1': 0.47368421052631576, 'eval_T031_number': 22, 'eval_T033_precision': 0.4980582524271845, 'eval_T033_recall': 0.5176589303733602, 'eval_T033_f1': 0.5076694705591291, 'eval_T033_number': 991, 'eval_T037_precision': 0.55, 'eval_T037_recall': 0.5, 'eval_T037_f1': 0.5238095238095238, 'eval_T037_number': 44, 'eval_T038_precision': 0.6685878962536023, 'eval_T038_recall': 0.7227414330218068, 'eval_T038_f1': 0.6946107784431138, 'eval_T038_number': 2568, 'eval_T058_precision': 0.5878594249201278, 'eval_T058_recall': 0.6186953597848016, 'eval_T058_f1': 0.6028833551769331, 'eval_T058_number': 1487, 'eval_T062_precision': 0.5176848874598071, 'eval_T062_recall': 0.5833333333333334, 'eval_T062_f1': 0.5485519591141398, 'eval_T062_number': 552, 'eval_T074_precision': 0.5772357723577236, 'eval_T074_recall': 0.6173913043478261, 'eval_T074_f1': 0.5966386554621849, 'eval_T074_number': 115, 'eval_T082_precision': 0.5939643347050755, 'eval_T082_recall': 0.5835579514824798, 'eval_T082_f1': 0.5887151597552686, 'eval_T082_number': 742, 'eval_T091_precision': 0.3333333333333333, 'eval_T091_recall': 0.3, 'eval_T091_f1': 0.3157894736842105, 'eval_T091_number': 20, 'eval_T092_precision': 0.19444444444444445, 'eval_T092_recall': 0.1891891891891892, 'eval_T092_f1': 0.1917808219178082, 'eval_T092_number': 37, 'eval_T097_precision': 0.2, 'eval_T097_recall': 0.26666666666666666, 'eval_T097_f1': 0.2285714285714286, 'eval_T097_number': 15, 'eval_T098_precision': 0.7138810198300283, 'eval_T098_recall': 0.717948717948718, 'eval_T098_f1': 0.7159090909090909, 'eval_T098_number': 351, 'eval_T103_precision': 0.7349128296826106, 'eval_T103_recall': 0.7517146776406035, 'eval_T103_f1': 0.7432188065099459, 'eval_T103_number': 2187, 'eval_T168_precision': 0.4642857142857143, 'eval_T168_recall': 0.4642857142857143, 'eval_T168_f1': 0.4642857142857143, 'eval_T168_number': 28, 'eval_T170_precision': 0.5530903328050714, 'eval_T170_recall': 0.5836120401337793, 'eval_T170_f1': 0.5679414157851913, 'eval_T170_number': 598, 'eval_T201_precision': 0.4642857142857143, 'eval_T201_recall': 0.325, 'eval_T201_f1': 0.3823529411764706, 'eval_T201_number': 40, 'eval_T204_precision': 0.7399193548387096, 'eval_T204_recall': 0.7677824267782427, 'eval_T204_f1': 0.7535934291581108, 'eval_T204_number': 478, 'eval_overall_precision': 0.6340981988650383, 'eval_overall_recall': 0.6654008802968845, 'eval_overall_f1': 0.6493725258990988, 'eval_overall_accuracy': 0.8829861923706998, 'eval_runtime': 3.3201, 'eval_samples_per_second': 889.735, 'eval_steps_per_second': 111.443, 'epoch': 8.0}
+{'loss': 0.0331, 'grad_norm': 1.733406662940979, 'learning_rate': 8.780068728522336e-06, 'epoch': 8.25}
+{'loss': 0.0289, 'grad_norm': 3.621324300765991, 'learning_rate': 7.065292096219932e-06, 'epoch': 8.59}
+{'loss': 0.0305, 'grad_norm': 2.069843292236328, 'learning_rate': 5.350515463917526e-06, 'epoch': 8.93}
+Computing metrics... # DEBUG
+{'eval_loss': 0.6574276089668274, 'eval_T005_precision': 0.7333333333333333, 'eval_T005_recall': 0.44, 'eval_T005_f1': 0.5499999999999999, 'eval_T005_number': 25, 'eval_T007_precision': 0.6578947368421053, 'eval_T007_recall': 0.5555555555555556, 'eval_T007_f1': 0.6024096385542169, 'eval_T007_number': 45, 'eval_T017_precision': 0.6470588235294118, 'eval_T017_recall': 0.6958637469586375, 'eval_T017_f1': 0.6705744431418523, 'eval_T017_number': 1233, 'eval_T022_precision': 0.3333333333333333, 'eval_T022_recall': 0.1111111111111111, 'eval_T022_f1': 0.16666666666666666, 'eval_T022_number': 9, 'eval_T031_precision': 0.6111111111111112, 'eval_T031_recall': 0.5, 'eval_T031_f1': 0.55, 'eval_T031_number': 22, 'eval_T033_precision': 0.49039341262580055, 'eval_T033_recall': 0.5408678102926338, 'eval_T033_f1': 0.5143953934740884, 'eval_T033_number': 991, 'eval_T037_precision': 0.5945945945945946, 'eval_T037_recall': 0.5, 'eval_T037_f1': 0.5432098765432098, 'eval_T037_number': 44, 'eval_T038_precision': 0.6770140428677014, 'eval_T038_recall': 0.7133956386292835, 'eval_T038_f1': 0.6947288585513841, 'eval_T038_number': 2568, 'eval_T058_precision': 0.5892968263845675, 'eval_T058_recall': 0.636852723604573, 'eval_T058_f1': 0.612152553329024, 'eval_T058_number': 1487, 'eval_T062_precision': 0.538971807628524, 'eval_T062_recall': 0.5887681159420289, 'eval_T062_f1': 0.5627705627705627, 'eval_T062_number': 552, 'eval_T074_precision': 0.5725806451612904, 'eval_T074_recall': 0.6173913043478261, 'eval_T074_f1': 0.5941422594142259, 'eval_T074_number': 115, 'eval_T082_precision': 0.5989085948158254, 'eval_T082_recall': 0.5916442048517521, 'eval_T082_f1': 0.5952542372881356, 'eval_T082_number': 742, 'eval_T091_precision': 0.42857142857142855, 'eval_T091_recall': 0.3, 'eval_T091_f1': 0.3529411764705882, 'eval_T091_number': 20, 'eval_T092_precision': 0.17073170731707318, 'eval_T092_recall': 0.1891891891891892, 'eval_T092_f1': 0.17948717948717952, 'eval_T092_number': 37, 'eval_T097_precision': 0.15384615384615385, 'eval_T097_recall': 0.13333333333333333, 'eval_T097_f1': 0.14285714285714288, 'eval_T097_number': 15, 'eval_T098_precision': 0.7126760563380282, 'eval_T098_recall': 0.7207977207977208, 'eval_T098_f1': 0.71671388101983, 'eval_T098_number': 351, 'eval_T103_precision': 0.7243337702053299, 'eval_T103_recall': 0.7581161408321903, 'eval_T103_f1': 0.7408400357462019, 'eval_T103_number': 2187, 'eval_T168_precision': 0.3684210526315789, 'eval_T168_recall': 0.5, 'eval_T168_f1': 0.4242424242424242, 'eval_T168_number': 28, 'eval_T170_precision': 0.5586776859504132, 'eval_T170_recall': 0.5652173913043478, 'eval_T170_f1': 0.5619285120532004, 'eval_T170_number': 598, 'eval_T201_precision': 0.5416666666666666, 'eval_T201_recall': 0.325, 'eval_T201_f1': 0.40624999999999994, 'eval_T201_number': 40, 'eval_T204_precision': 0.7405940594059406, 'eval_T204_recall': 0.7824267782426778, 'eval_T204_f1': 0.7609359104781283, 'eval_T204_number': 478, 'eval_overall_precision': 0.6353491425289243, 'eval_overall_recall': 0.6682488996288944, 'eval_overall_f1': 0.6513838647261715, 'eval_overall_accuracy': 0.8844293626647944, 'eval_runtime': 3.4, 'eval_samples_per_second': 868.818, 'eval_steps_per_second': 108.823, 'epoch': 9.0}
+{'loss': 0.0238, 'grad_norm': 0.8059751987457275, 'learning_rate': 3.632302405498282e-06, 'epoch': 9.28}
+{'loss': 0.0221, 'grad_norm': 3.595703125, 'learning_rate': 1.914089347079038e-06, 'epoch': 9.62}
+{'loss': 0.0219, 'grad_norm': 2.039006471633911, 'learning_rate': 1.958762886597938e-07, 'epoch': 9.97}
+Computing metrics... # DEBUG
+{'eval_loss': 0.6778134107589722, 'eval_T005_precision': 0.6842105263157895, 'eval_T005_recall': 0.52, 'eval_T005_f1': 0.5909090909090909, 'eval_T005_number': 25, 'eval_T007_precision': 0.6486486486486487, 'eval_T007_recall': 0.5333333333333333, 'eval_T007_f1': 0.5853658536585367, 'eval_T007_number': 45, 'eval_T017_precision': 0.6551193225558122, 'eval_T017_recall': 0.6901865369018654, 'eval_T017_f1': 0.6721958925750394, 'eval_T017_number': 1233, 'eval_T022_precision': 0.5, 'eval_T022_recall': 0.2222222222222222, 'eval_T022_f1': 0.30769230769230765, 'eval_T022_number': 9, 'eval_T031_precision': 0.6111111111111112, 'eval_T031_recall': 0.5, 'eval_T031_f1': 0.55, 'eval_T031_number': 22, 'eval_T033_precision': 0.5170731707317073, 'eval_T033_recall': 0.5348133198789102, 'eval_T033_f1': 0.5257936507936508, 'eval_T033_number': 991, 'eval_T037_precision': 0.5853658536585366, 'eval_T037_recall': 0.5454545454545454, 'eval_T037_f1': 0.5647058823529411, 'eval_T037_number': 44, 'eval_T038_precision': 0.6837156825874389, 'eval_T038_recall': 0.7079439252336449, 'eval_T038_f1': 0.6956189018557489, 'eval_T038_number': 2568, 'eval_T058_precision': 0.5849056603773585, 'eval_T058_recall': 0.6462676529926026, 'eval_T058_f1': 0.6140575079872204, 'eval_T058_number': 1487, 'eval_T062_precision': 0.524671052631579, 'eval_T062_recall': 0.5778985507246377, 'eval_T062_f1': 0.55, 'eval_T062_number': 552, 'eval_T074_precision': 0.576, 'eval_T074_recall': 0.6260869565217392, 'eval_T074_f1': 0.6000000000000001, 'eval_T074_number': 115, 'eval_T082_precision': 0.5904255319148937, 'eval_T082_recall': 0.5983827493261455, 'eval_T082_f1': 0.5943775100401607, 'eval_T082_number': 742, 'eval_T091_precision': 0.42857142857142855, 'eval_T091_recall': 0.3, 'eval_T091_f1': 0.3529411764705882, 'eval_T091_number': 20, 'eval_T092_precision': 0.2, 'eval_T092_recall': 0.1891891891891892, 'eval_T092_f1': 0.19444444444444445, 'eval_T092_number': 37, 'eval_T097_precision': 0.16666666666666666, 'eval_T097_recall': 0.2, 'eval_T097_f1': 0.1818181818181818, 'eval_T097_number': 15, 'eval_T098_precision': 0.7027777777777777, 'eval_T098_recall': 0.7207977207977208, 'eval_T098_f1': 0.7116736990154711, 'eval_T098_number': 351, 'eval_T103_precision': 0.735632183908046, 'eval_T103_recall': 0.7608596250571559, 'eval_T103_f1': 0.74803326590245, 'eval_T103_number': 2187, 'eval_T168_precision': 0.45161290322580644, 'eval_T168_recall': 0.5, 'eval_T168_f1': 0.47457627118644063, 'eval_T168_number': 28, 'eval_T170_precision': 0.5495934959349593, 'eval_T170_recall': 0.5652173913043478, 'eval_T170_f1': 0.5572959604286891, 'eval_T170_number': 598, 'eval_T201_precision': 0.4482758620689655, 'eval_T201_recall': 0.325, 'eval_T201_f1': 0.3768115942028986, 'eval_T201_number': 40, 'eval_T204_precision': 0.746, 'eval_T204_recall': 0.7803347280334728, 'eval_T204_f1': 0.7627811860940695, 'eval_T204_number': 478, 'eval_overall_precision': 0.6399867702993219, 'eval_overall_recall': 0.66798998878053, 'eval_overall_f1': 0.6536886111228412, 'eval_overall_accuracy': 0.8851964531814754, 'eval_runtime': 3.4135, 'eval_samples_per_second': 865.379, 'eval_steps_per_second': 108.392, 'epoch': 10.0}
+{'train_runtime': 807.6152, 'train_samples_per_second': 288.169, 'train_steps_per_second': 18.016, 'train_loss': 0.17740841537816418, 'epoch': 10.0}
+***** train metrics *****
+  epoch                    =       10.0
+  total_flos               =  7734244GF
+  train_loss               =     0.1774
+  train_runtime            = 0:13:27.61
+  train_samples            =      23273
+  train_samples_per_second =    288.169
+  train_steps_per_second   =     18.016
+04/13/2025 02:42:49 - INFO - __main__ - *** Evaluate ***
+Computing metrics... # DEBUG
+***** eval metrics *****
+  epoch                   =       10.0
+  eval_T005_f1            =     0.5909
+  eval_T005_number        =         25
+  eval_T005_precision     =     0.6842
+  eval_T005_recall        =       0.52
+  eval_T007_f1            =     0.5854
+  eval_T007_number        =         45
+  eval_T007_precision     =     0.6486
+  eval_T007_recall        =     0.5333
+  eval_T017_f1            =     0.6722
+  eval_T017_number        =       1233
+  eval_T017_precision     =     0.6551
+  eval_T017_recall        =     0.6902
+  eval_T022_f1            =     0.3077
+  eval_T022_number        =          9
+  eval_T022_precision     =        0.5
+  eval_T022_recall        =     0.2222
+  eval_T031_f1            =       0.55
+  eval_T031_number        =         22
+  eval_T031_precision     =     0.6111
+  eval_T031_recall        =        0.5
+  eval_T033_f1            =     0.5258
+  eval_T033_number        =        991
+  eval_T033_precision     =     0.5171
+  eval_T033_recall        =     0.5348
+  eval_T037_f1            =     0.5647
+  eval_T037_number        =         44
+  eval_T037_precision     =     0.5854
+  eval_T037_recall        =     0.5455
+  eval_T038_f1            =     0.6956
+  eval_T038_number        =       2568
+  eval_T038_precision     =     0.6837
+  eval_T038_recall        =     0.7079
+  eval_T058_f1            =     0.6141
+  eval_T058_number        =       1487
+  eval_T058_precision     =     0.5849
+  eval_T058_recall        =     0.6463
+  eval_T062_f1            =       0.55
+  eval_T062_number        =        552
+  eval_T062_precision     =     0.5247
+  eval_T062_recall        =     0.5779
+  eval_T074_f1            =        0.6
+  eval_T074_number        =        115
+  eval_T074_precision     =      0.576
+  eval_T074_recall        =     0.6261
+  eval_T082_f1            =     0.5944
+  eval_T082_number        =        742
+  eval_T082_precision     =     0.5904
+  eval_T082_recall        =     0.5984
+  eval_T091_f1            =     0.3529
+  eval_T091_number        =         20
+  eval_T091_precision     =     0.4286
+  eval_T091_recall        =        0.3
+  eval_T092_f1            =     0.1944
+  eval_T092_number        =         37
+  eval_T092_precision     =        0.2
+  eval_T092_recall        =     0.1892
+  eval_T097_f1            =     0.1818
+  eval_T097_number        =         15
+  eval_T097_precision     =     0.1667
+  eval_T097_recall        =        0.2
+  eval_T098_f1            =     0.7117
+  eval_T098_number        =        351
+  eval_T098_precision     =     0.7028
+  eval_T098_recall        =     0.7208
+  eval_T103_f1            =      0.748
+  eval_T103_number        =       2187
+  eval_T103_precision     =     0.7356
+  eval_T103_recall        =     0.7609
+  eval_T168_f1            =     0.4746
+  eval_T168_number        =         28
+  eval_T168_precision     =     0.4516
+  eval_T168_recall        =        0.5
+  eval_T170_f1            =     0.5573
+  eval_T170_number        =        598
+  eval_T170_precision     =     0.5496
+  eval_T170_recall        =     0.5652
+  eval_T201_f1            =     0.3768
+  eval_T201_number        =         40
+  eval_T201_precision     =     0.4483
+  eval_T201_recall        =      0.325
+  eval_T204_f1            =     0.7628
+  eval_T204_number        =        478
+  eval_T204_precision     =      0.746
+  eval_T204_recall        =     0.7803
+  eval_loss               =     0.6778
+  eval_overall_accuracy   =     0.8852
+  eval_overall_f1         =     0.6537
+  eval_overall_precision  =       0.64
+  eval_overall_recall     =      0.668
+  eval_runtime            = 0:00:03.30
+  eval_samples            =       2954
+  eval_samples_per_second =    893.673
+  eval_steps_per_second   =    111.936
+04/13/2025 02:42:52 - INFO - __main__ - *** Predict ***
+Computing metrics... # DEBUG
+***** predict metrics *****
+  predict_T005_f1            =     0.5641
+  predict_T005_number        =         24
+  predict_T005_precision     =     0.7333
+  predict_T005_recall        =     0.4583
+  predict_T007_f1            =     0.7045
+  predict_T007_number        =         44
+  predict_T007_precision     =     0.7045
+  predict_T007_recall        =     0.7045
+  predict_T017_f1            =     0.6896
+  predict_T017_number        =       1271
+  predict_T017_precision     =     0.6699
+  predict_T017_recall        =     0.7105
+  predict_T022_f1            =     0.1538
+  predict_T022_number        =          9
+  predict_T022_precision     =       0.25
+  predict_T022_recall        =     0.1111
+  predict_T031_f1            =     0.3571
+  predict_T031_number        =         20
+  predict_T031_precision     =      0.625
+  predict_T031_recall        =       0.25
+  predict_T033_f1            =      0.513
+  predict_T033_number        =        981
+  predict_T033_precision     =     0.5251
+  predict_T033_recall        =     0.5015
+  predict_T037_f1            =     0.6098
+  predict_T037_number        =         43
+  predict_T037_precision     =      0.641
+  predict_T037_recall        =     0.5814
+  predict_T038_f1            =     0.6977
+  predict_T038_number        =       2515
+  predict_T038_precision     =     0.6805
+  predict_T038_recall        =     0.7157
+  predict_T058_f1            =     0.5871
+  predict_T058_number        =       1473
+  predict_T058_precision     =     0.5609
+  predict_T058_recall        =     0.6158
+  predict_T062_f1            =      0.545
+  predict_T062_number        =        528
+  predict_T062_precision     =     0.5057
+  predict_T062_recall        =     0.5909
+  predict_T074_f1            =     0.5756
+  predict_T074_number        =        126
+  predict_T074_precision     =     0.5379
+  predict_T074_recall        =      0.619
+  predict_T082_f1            =     0.6354
+  predict_T082_number        =        752
+  predict_T082_precision     =     0.6073
+  predict_T082_recall        =     0.6662
+  predict_T091_f1            =     0.4375
+  predict_T091_number        =         19
+  predict_T091_precision     =     0.5385
+  predict_T091_recall        =     0.3684
+  predict_T092_f1            =     0.3896
+  predict_T092_number        =         46
+  predict_T092_precision     =     0.4839
+  predict_T092_recall        =     0.3261
+  predict_T097_f1            =        0.0
+  predict_T097_number        =         14
+  predict_T097_precision     =        0.0
+  predict_T097_recall        =        0.0
+  predict_T098_f1            =     0.7033
+  predict_T098_number        =        384
+  predict_T098_precision     =      0.691
+  predict_T098_recall        =     0.7161
+  predict_T103_f1            =     0.7396
+  predict_T103_number        =       2200
+  predict_T103_precision     =     0.7131
+  predict_T103_recall        =     0.7682
+  predict_T168_f1            =     0.3137
+  predict_T168_number        =         29
+  predict_T168_precision     =     0.3636
+  predict_T168_recall        =     0.2759
+  predict_T170_f1            =     0.5383
+  predict_T170_number        =        590
+  predict_T170_precision     =     0.5295
+  predict_T170_recall        =     0.5475
+  predict_T201_f1            =     0.3944
+  predict_T201_number        =         39
+  predict_T201_precision     =     0.4375
+  predict_T201_recall        =      0.359
+  predict_T204_f1            =     0.7881
+  predict_T204_number        =        494
+  predict_T204_precision     =     0.7713
+  predict_T204_recall        =     0.8057
+  predict_loss               =     0.7001
+  predict_overall_accuracy   =     0.8829
+  predict_overall_f1         =     0.6537
+  predict_overall_precision  =     0.6364
+  predict_overall_recall     =      0.672
+  predict_runtime            = 0:00:03.24
+  predict_samples_per_second =    887.955
+  predict_steps_per_second   =    110.994
